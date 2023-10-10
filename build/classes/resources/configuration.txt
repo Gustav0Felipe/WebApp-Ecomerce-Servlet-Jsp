@@ -1,8 +1,8 @@
-url=jdbc:mysql://localhost:3306/loja
+url=jdbc:mysql://localhost:3306/ecommerce
 usuario=root
 senha=1234
 
-autenticar.funcionario=call pd_user_func(?, ?);
+autenticar.cliente=call pd_user_cliente(?, ?);
 autenticar.admin=call pd_user_admin(?, ?);
 
 historico.login.iniciar=call pd_iniciou_sessao(?, ?, ?);
@@ -11,7 +11,8 @@ historico.login.fechar=call pd_finalizou_sessao(?);
 cadastro.cliente=call pd_cadastro_cliente(?, ?, ?, ?, ?);
 cadastro.produtos=call pd_cadastro_produto(?, ?, ?, ?, ?);
 cadastro.funcionario=call pd_cadastro_funcionario(?, ? , ?, ?, ?, ?);
-cadastro.usuario.sistema=call pd_cadastro_usuario_sistema(?, ?, ?);
+
+cadastro.cliente.sistema=call pd_cadastro_cliente_sistema(?, ?, ?);
 
 listar.produto=select * from view_produtos;
 listar.cliente=select * from view_clientes;

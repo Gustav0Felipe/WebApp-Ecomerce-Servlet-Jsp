@@ -35,8 +35,8 @@
 			<li><a href="#"> Supermercado </a></li>
 			<li><a href="#"> Moda </a></li>
 			<!-- Espaçamento-->
-			<li><a href="#"> Crie a sua conta </a></li>
-			<li><a href="#"> Entre </a></li>
+			<li><a href="/loja/cadastro"> Crie a sua conta </a></li>
+			<li><a href="/loja/login"> Entre </a></li>
 			<li><a href="/loja/cart">
 					<span class="material-symbols-outlined">shopping_cart</span> 
 				</a>

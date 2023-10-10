@@ -10,19 +10,35 @@ public class Cliente {
 	
 	public String email;
 
-	public String endereco;
+	public String senha;
+
+	public String cpf;
 	
-	public int codfunc;
 
 	
 
-	public Cliente(int id, String nome, String telefone, String email, String endereco, int codfunc) {
+	public Cliente(int id, String nome, String telefone, String email, String senha, String cpf) {
 		this.id = id;
 		this.nome = nome;
 		this.telefone = telefone;
 		this.email = email;
-		this.endereco = endereco;
-		this.codfunc = codfunc;
+		this.senha = senha;
+		this.cpf = cpf;
+	}
+
+	public Cliente() {
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	
+	public Cliente(int id, String nome, String telefone, String email, String cpf) {
+		this.id = id;
+		this.nome = nome;
+		this.telefone = telefone;
+		this.email = email;
+		this.cpf = cpf;
+
 	}
 
 	public int getId() {
@@ -56,6 +72,23 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
 	
 	
 	

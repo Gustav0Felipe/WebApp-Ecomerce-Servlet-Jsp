@@ -47,44 +47,6 @@ public class DAOLoja {
 		}
 	}
 	
-	public static Funcionario validarLogin(String usuario, String senha) {
-		Connection conexao = null;
-		//pega o funcionario passando usuario e senha.
-		String cmd = LojaUtil.get("autenticar.funcionario");
-		
-		Funcionario funcionario = null;
-		
-		try {
-			conexao = getConnection();
-			PreparedStatement ps = conexao.prepareStatement(cmd);
-				ps.setString(1, usuario);
-				ps.setString(2, senha);
-				
-				ResultSet result = ps.executeQuery();
-				//só tem um registro, pega todas as colunas dele.
-				if(result.next()) {
-					int id = result.getInt("IdFuncionario");
-					String nome = result.getString("Nome");
-					String cargo = result.getString("Cargo");
-					double salario = result.getInt("Salario");
-					String telefone = result.getString("Telefone");
-					String email = result.getString("Email");
-					String endereco = result.getString("Endereco");
-					
-					funcionario = new Funcionario(id, nome, cargo, salario, telefone, email, endereco);
-					
-					return funcionario;
-				}	
-				
-				
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			closeConnection(conexao);
-		}
-		return null;
-	}
-	
 	public static Boolean validarAdmin(String usuario, String senha) {
 		Connection conexao = null;
 		String admin = LojaUtil.get("autenticar.admin");
@@ -160,40 +122,6 @@ public class DAOLoja {
 		}		
 	}
 
-	/**
-	 * Cadastra o cliente no banco de dados ultilizando as informações passadas.
-	 * 
-	 * 
-	 * @param nome Nome do cliente
-	 * @param email Email do cliente
-	 * @param telefone Telefone do cliente (Opcional)
-	 * @param endereco Endereco do cliente
-	 * @param codFunc Funcionario que cadastrou o cliente
-	 */
-	public static void cadastrarCliente(String nome, String email, String telefone, String endereco, int codFunc) {
-		Connection conexao = null;
-			
-		String cmd = LojaUtil.get("cadastro.cliente");
-		
-		try {
-			conexao = getConnection();
-			PreparedStatement ps = conexao.prepareStatement(cmd);
-			ps.setString(1, nome);
-			ps.setString(2, telefone);
-			ps.setString(3, email);
-			ps.setString(4, endereco);
-			ps.setInt(5, codFunc);
-			
-			ps.execute();
-			
-		
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			closeConnection(conexao);
-		}
-		
-	}
 
 	/**
 	 * Retorna uma lista com todos os pedidos.
@@ -330,11 +258,10 @@ public class DAOLoja {
 				
 				String email = result.getString(4);
 
-				String endereco = result.getString(5);
+				String cpf = result.getString(5);
 				
-				int codfunc = result.getInt(6);
 				
-				Cliente cliente = new Cliente(id, nome, telefone, email, endereco, codfunc);
+				Cliente cliente = new Cliente(id, nome, telefone, email, cpf);
 			
 				clientes.add(cliente);
 			}
@@ -496,6 +423,7 @@ public class DAOLoja {
 		}
 		
 	}
+
 
 	
 

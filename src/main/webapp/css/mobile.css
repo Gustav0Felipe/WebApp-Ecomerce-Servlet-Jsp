@@ -270,3 +270,54 @@ input#cep{
 
 
 
+
+
+
+div#cadastro, div#login {
+	width: 90%;
+	max-width: 400px;
+	margin: auto;
+	
+	text-align: center;
+}
+div#cadastro, div#login > form{
+	display: flex;
+	flex-direction: column;
+}
+
+div#cadastro, div#login > form > input {
+	padding: 5px;
+	margin-top: 5px;
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+div#cadastro, div#login > form > input:focus {
+	border-color:  rgb(255, 176, 98);
+	outline: none;
+	
+}
+div#cadastro, div#login > form > label {
+	display: none;
+}
+
+div#cadastro, div#login > form > #cadastrar{
+	margin-top: 10px;
+	padding: 5px;
+	border-radius: 5px;
+	color: #fff;
+	background-color: rgb(255, 128, 0);
+}
+div#cadastro > #createUserIcon {
+	font-size: 2em; 
+	margin-top: 10px;
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 50%;
+}
+
+div#login > #accountIcon{
+	font-size: 3em; 
+	margin-top: 10px;
+	padding: 10px;
+}
+
