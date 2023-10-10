@@ -1,0 +1,272 @@
+@charset "UTF-8";
+
+* {
+	margin: 0px;
+	padding: 0px;
+	font-family: Helvetica, Arial, sans-serif;
+	box-sizing: border-box;
+	
+}
+
+body, html{
+	width: 100vw;
+	height: 100vh;
+}
+
+header{
+	background-color: rgb(255, 165, 43);
+	width: 100vw;	
+	padding: 10px;
+}
+header > div > form{
+	display: inline-block;
+	width: 100%;
+	max-width: 900px;
+	transform: translateY(-12px);
+}
+header > div > form > input{
+	padding: 15px;
+	border: none;
+	border-radius: 5px;
+	width: 100%;
+}
+header > div > form > input:focus{
+	background-color: white;
+    border: none;
+	outline: 0px solid rgb(128, 255, 255);
+}
+
+header > #logo{
+	display: inline-block;
+	width: 40px;
+}
+header > #pesquisar{
+	display: inline-block;
+	text-align: center;
+	width: calc(100% - 44px);
+}
+nav{
+	text-align: center;
+	display: none;
+	width: 100%;
+	padding: 10px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+nav > ul{
+    list-style-type: none;
+    margin: 0px;
+}
+nav > ul > li > a{
+	display: block;
+	text-decoration: none;
+	background-color: rgb(255, 203, 151);
+	color: rgb(255, 255, 255);
+	padding: 2px;
+}
+nav > ul > li > a:hover{
+	background-color: rgb(255, 176, 98);
+}
+nav > ul > li:last-child > a{
+    border-radius: 0px 0px 5px 5px;
+    padding-bottom: 10px;
+}
+#burguer{
+    display: block;
+    color: white;
+    background-color: rgb(255, 128, 0);
+	width: 100%;
+    padding: 10px;
+	border-radius: 5px;
+
+    text-align: center;
+    cursor: pointer; 
+}
+#cart{
+	font-size: 1.5em;
+}
+#section-principal > h1{
+	font-size: 2em;
+	text-align: center;
+}
+.produtos{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.produto{
+	display: flex;
+	flex-direction: row;
+}
+.produto > a >img{
+	display: inline-block;
+	width: 40vw;
+}
+
+footer{
+	position: fixed;
+	bottom: 0;	
+	
+	width: 100vw;
+	text-align: center;
+
+	background-color: lightslategray;
+}
+
+
+
+
+p#preco{
+	display: block;
+	width: 90%;
+	margin: auto;
+	font-size: 2em;
+	color: rgb(19, 154, 16);
+}
+
+button#comprar{
+	width: 100%;
+	margin: auto;
+	padding: 7px;
+	border-radius: 5px;
+
+	color: white;
+	background-color: rgb(19, 154, 16);
+	box-shadow: 1px 1px 1px rgb(106, 106, 106, 0.50);
+
+	font-size: 2em;
+}
+
+ol#descricao_bar{
+	display: flex;
+	width: 90%;
+	max-width: 300px;
+	padding: 7PX;
+	margin: 10px auto;
+	align-content: center;
+	border: 1px solid rgb(195, 195, 195, 0.50);
+	background-color: rgb(233, 233, 233);
+
+	text-align: left;
+	cursor: pointer;
+	list-style-type: none;
+}
+li#dropdown{
+	margin-left: auto;
+}
+div#descricao{
+	display: none;
+	width: 90%;
+	max-width: 300px;
+	margin: auto;
+	border: 1px solid rgb(209, 209, 209, 0.30);
+}
+div#detalhes{
+	margin: auto;
+	width: 90%;
+	max-width: 900px;
+}
+div#detalhes > img {
+	display: block;
+	width: 200px;
+	margin: auto;
+}
+div#detalhes > form {
+	width: 90%px;
+	max-width: 300px;
+	margin: auto;
+}
+
+
+
+
+/* Pagina Carrinho*/
+
+div#resumo {
+	margin: auto;
+	width: 90%;
+	max-width: 900px;
+ 	box-shadow: 1px 1px 1px 1px rgb(181, 180, 182, 0.329);	
+ 	text-align: center;
+}
+p#total {
+	text-align: justify;
+	font-weight: bold;
+}
+
+div#carrinho {
+	margin: auto;
+	margin-top: 10px;
+	width: 90%;
+	max-width: 900px;
+	padding: 10px;
+	box-shadow: 1px 1px 1px 1px rgb(181, 180, 182, 0.329);	
+}
+
+ol#carrinhoList {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin-bottom: 10px;
+}
+
+ol#carrinhoList > li {
+	display: flex;
+	flex-direction: column;
+	align-content: space-around;
+}
+ol#carrinhoList > li > p > button {
+	display: inline-block;
+	width: 20px;
+	border-radius: 2px;
+	border: 1px solid  black;
+}
+ol#carrinhoList > li > p > button > span{
+	font-size: 1em;
+}
+.miniatura_produto {
+	
+	width: 70px;
+}
+#limparCarrinho{
+	display: flex;
+	width: 150px;
+	margin-left: auto;
+	padding: 3px;
+	
+	justify-content: space-between;
+	
+	background-color: white;
+	border: 1px solid  rgb(133, 133, 133);
+	border-radius: 2px;
+}
+input#cep{
+	padding: 6px;
+	transform: translateY(-7px);
+}
+#calcularCep{
+	display: inline-flex;
+	justify-content: space-between;
+	
+	padding: 3px;
+	background-color: white;
+	border: 1px solid  rgb(133, 133, 133);
+	border-radius: 2px;
+}
+#finalizar{ 
+	text-align: center;
+}
+#finalizar button{
+	width: 90%;
+	margin: auto;
+	margin-top: 10px;
+	padding: 7px;
+	border-radius: 5px;
+
+	color: white;
+	background-color: rgb(19, 154, 16);
+	box-shadow: 1px 1px 1px rgb(106, 106, 106, 0.50);
+
+	font-size: 1.5em;
+}
+
+
+
