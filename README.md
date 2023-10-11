@@ -10,4 +10,6 @@ Projeto Java - Fazendo um ecomerce com Servlets e JSPS
 
 - Carrinho funcionando, persistencia de produtos usando o id da sessão esta funcionando, necessario terminar a logica de negocio da compra, calculo de frete e botões.
 
+- Pagina de cadastro e login adicionadas e funcionando, á fazer validações e lembrar de colocar o login na sessão para que o usuario possa acessar sua conta á qualquer momento, alem de dar ao usuario a opção de mudar suas informações ou deletar sua conta.
+
 - Todas as paginas tem uma estilização inicial.
