@@ -6,6 +6,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import loja.negocio.Cliente;
 import loja.persistencia.DAOEcommerce;
 
@@ -25,11 +26,13 @@ public class LoginController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		HttpSession session = req.getSession(false);
+		
 		String email = req.getParameter("email");
 		String senha = req.getParameter("senha");
 		
 		Cliente cliente = DAOEcommerce.validarLogin(email, senha);
-		req.setAttribute("cliente", cliente);
+		session.setAttribute("cliente", cliente);
 		req.getRequestDispatcher("/WEB-INF/user/perfil.jsp").forward(req, resp);
 	}
 

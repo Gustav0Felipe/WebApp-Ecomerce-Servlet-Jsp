@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Cadastro</title>
+<title>Editar</title>
 <link rel="shortcut icon" href="favicon.ico"/>
 <link rel="stylesheet" href="css/mobile.css" media="all">
 <link rel="stylesheet" href="css/mediaquery.css">
@@ -14,32 +14,38 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
-<script type="text/javascript" src="js/responsive.js">
-	
-</script>
+<script type="text/javascript" src="js/responsive.js"></script>
 </head>
 <body onresize="mudouTamanhoMenu()" onload="mudouTamanhoMenu()">
-
+	
 	<!-- Header Cabeçalho. -->
 	<jsp:include page="/cabecalho.jsp"/>
 	
 	<section id="section-principal">
 	
-		<div class="login">
-			<span id="accountIcon" class="material-symbols-outlined">account_circle</span>
-			<h1>Fazer Login</h1>
-			<p> Informe Email e Senha </p>
-			<form name="formLogin" action="/loja/login" method="post">
+	<div id="minhaConta">
+		<span id="accountIcon" class="material-symbols-outlined">account_circle</span>
+		<h1>Meus dados</h1>
+		
+		<form name="formCadastro" action="/loja/account/edit" method="post">
+			
+				<label for="nome">Nome: </label>
+				<input id="nome" name="nome" type="text" maxlength="255" placeholder="Nome" value="${cliente.getNome()}"/>
+				
+				<label for="cpf">CPF: </label>
+				<input id="cpf" name="cpf" type="text" maxlength="255" placeholder="CPF *" value="${cliente.getCpf()}" />
+				
+				<label for="telefone">Telefone: </label>
+				<input id="telefone" name="telefone" type="tel" placeholder="Telefone" value="${cliente.getTelefone()}"/>
 				
 				<label for="email">Email: </label>
-				<input id="email" name="email" type="email" maxlength="255" placeholder="Email *"/>
-				
-				<label for="senha">Senha: </label>
-				<input id="senha" name="senha" type="password" min="8" placeholder="Senha *"/>
+				<input id="email" name="email" type="email" maxlength="255" placeholder="Email *" value="${cliente.getEmail()}"/>
 				
 				<button id="cadastrar" type="submit">Enviar</button>
 			</form>
-		</div>
+	</div>
+	
+	<div id="meusDados"> </div>
 	
 	</section>
 	

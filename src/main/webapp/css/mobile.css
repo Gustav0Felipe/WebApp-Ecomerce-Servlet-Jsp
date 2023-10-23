@@ -62,7 +62,7 @@ nav > ul > li > a{
 	text-decoration: none;
 	background-color: rgb(255, 203, 151);
 	color: rgb(255, 255, 255);
-	padding: 2px;
+	padding: 5px;
 }
 nav > ul > li > a:hover{
 	background-color: rgb(255, 176, 98);
@@ -273,34 +273,34 @@ input#cep{
 
 
 
-div#cadastro, div#login {
+div#cadastro, div.login {
 	width: 90%;
 	max-width: 400px;
 	margin: auto;
 	
 	text-align: center;
 }
-div#cadastro, div#login > form{
+div#cadastro, div.login > form{
 	display: flex;
 	flex-direction: column;
 }
 
-div#cadastro, div#login > form > input {
+div#cadastro, div.login > form > input {
 	padding: 5px;
 	margin-top: 5px;
 	border-radius: 5px;
 	border: 1px solid gray;
 }
-div#cadastro, div#login > form > input:focus {
+div#cadastro, div.login > form > input:focus {
 	border-color:  rgb(255, 176, 98);
 	outline: none;
 	
 }
-div#cadastro, div#login > form > label {
+div#cadastro, div.login > form > label {
 	display: none;
 }
 
-div#cadastro, div#login > form > #cadastrar{
+div#cadastro, div.login > form > #cadastrar{
 	margin-top: 10px;
 	padding: 5px;
 	border-radius: 5px;
@@ -315,7 +315,7 @@ div#cadastro > #createUserIcon {
 	border-radius: 50%;
 }
 
-div#login > #accountIcon{
+div.login > #accountIcon{
 	font-size: 3em; 
 	margin-top: 10px;
 	padding: 10px;

@@ -16,9 +16,11 @@ public class CadastroController extends HttpServlet {
        
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getRequestDispatcher("/WEB-INF/user/cadastro.jsp").forward(req, resp);
+	
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		
 		String nome = req.getParameter("nome");
 		String email = req.getParameter("email");
@@ -29,6 +31,7 @@ public class CadastroController extends HttpServlet {
 		DAOEcommerce.cadastrarCliente(nome, email, telefone, senha, cpf);
 		
 		req.getRequestDispatcher("/WEB-INF/user/cadastro.jsp").forward(req, resp);
+		
 	}
 
 }

@@ -14,42 +14,28 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
-<script type="text/javascript" src="js/responsive.js">
-	
-</script>
+<script type="text/javascript" src="js/responsive.js"></script>
 </head>
 <body onresize="mudouTamanhoMenu()" onload="mudouTamanhoMenu()">
-	<header>
-			<img alt="Icone do Java" src="favicon.ico" id="logo">
-			<div id="pesquisar">
-				<form action="/loja/pesquisar" method="get">
-					<input type="text" id="pesquisa" name="pesquisa" placeholder="Pesquisar"/>
-				</form>
-			</div>
-			<span id="burguer" class="material-icons" onclick="clickMenu(menu)">menu</span>
-			<nav id="menu">
-				<ul>
-					<li><a href="#"> Ofertas do Dia </a></li>
-					<li><a href="#"> Supermercado </a></li>
-					<li><a href="#"> Moda </a></li>
-					<!-- Espaçamento-->
-					<li><a href="/loja/cadastro"> Crie a sua conta </a></li>
-					<li><a href="/loja/login"> Entre </a></li>
-					<li><a href="/loja/cart">
-							<span id="cart" class="material-symbols-outlined">shopping_cart</span> 
-						</a>
-					</li>
-					
-				</ul>
-			</nav>
-	</header>
+	
+	<!-- Header Cabeçalho. -->
+	<jsp:include page="/cabecalho.jsp"/>
+	
 	<section id="section-principal">
 	
-	<div id="login">
+	<div class="login">
 		<span id="accountIcon" class="material-symbols-outlined">account_circle</span>
-		<h1>Bem vindo, ${cliente.getNome()}</h1>
+		<h1>Minha Conta</h1>
+		<h2>Informações de Acesso</h2>		
 		
+		<p>${cliente.getNome()}</p>
+		<p>${cliente.getEmail()}</p>
+		<a href="/loja/account/editar"><button id="editarPerfil">EDITAR</button></a>
+		<a href="/loja/account/editpass"><button id="editarPerfil">MUDAR SENHA</button></a>
+		<button id="excluirConta">EXCLUIR MINHA CONTA</button>
 	</div>
+	
+	
 	</section>
 	
 	<footer class="rodape">
