@@ -13,3 +13,9 @@ Projeto Java - Fazendo um ecomerce com Servlets e JSPS
 - Pagina de cadastro e login adicionadas e funcionando, á fazer validações e lembrar de colocar o login na sessão para que o usuario possa acessar sua conta á qualquer momento, alem de dar ao usuario a opção de mudar suas informações ou deletar sua conta.
 
 - Todas as paginas tem uma estilização inicial.
+
+- Comecei a usar include nas JSPS.
+
+- Agora ao pegar os produtos no banco de dados armazenar apenas os nomes para carregar dinamicamente as imagens ao invés de um objeto Produto, ao clicar em um produto que o Objeto sera criado.
+
+- Subi no github os scripts do banco de dados que fiz.
