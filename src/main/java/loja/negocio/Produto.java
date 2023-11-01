@@ -30,6 +30,10 @@ public class Produto {
 		this.quantidadePedido ++;
 	}
 
+	public void decrementQuantidadePedido() {
+		this.quantidadePedido --;
+	}
+	
 	public Produto(int id, String nome, String desc, double custo, int qtd_estq, double valor, String categoria) {
 		this.id = id;
 		this.nome = nome;
@@ -106,7 +110,4 @@ public class Produto {
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
-	
-	
-	
 }

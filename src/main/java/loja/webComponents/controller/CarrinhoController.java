@@ -2,7 +2,8 @@ package loja.webComponents.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -19,10 +20,10 @@ public class CarrinhoController extends HttpServlet {
 	@SuppressWarnings("unchecked")
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session = req.getSession(false);
+		HttpSession session = req.getSession(true);
 		
-		Collection<Produto> produtos;
-		produtos = (Collection<Produto>) session.getAttribute("produtosSession");
+		List<Produto> produtos = new LinkedList<Produto>();
+		produtos = (List<Produto>) session.getAttribute("produtosSession");
 
 		if(produtos == null) {
 			produtos = new ArrayList<>();
@@ -36,14 +37,14 @@ public class CarrinhoController extends HttpServlet {
 	@SuppressWarnings("unchecked")
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session = req.getSession(false);
+		HttpSession session = req.getSession(true);
 		Produto produto = new Produto();
 		Pedido pedido = new Pedido();
-		Collection<Produto> produtos;
+		List<Produto> produtos = new LinkedList<Produto>();
 	
 		double total = 0;
 		
-		produto.setId(Integer.valueOf(req.getParameter("id")));
+		produto.setId(Integer.valueOf(req.getParameter("codigo")));
 		produto.setNome(req.getParameter("nome"));
 		produto.setCusto(Double.valueOf(req.getParameter("custo")));
 		produto.setValor(Double.valueOf(req.getParameter("valor")));
@@ -61,7 +62,7 @@ public class CarrinhoController extends HttpServlet {
 		}else {
 			total = produto.getValor();
 		}
-		produtos = (Collection<Produto>) session.getAttribute("produtosSession");
+		produtos = (List<Produto>) session.getAttribute("produtosSession");
 		
 		if(produtos == null) {
 			produtos = new ArrayList<>();
@@ -73,10 +74,11 @@ public class CarrinhoController extends HttpServlet {
 		
 		session.setAttribute("carrinhoTotalSession", total);
 		
-		pedido.setCliente("Jayr");
+		
+		//TODO dinamismo cliente
+		pedido.setCliente(9);
 		pedido.setProdutos(produtos);
-		pedido.setValorTotal(total);
-	
+		
 		
 		boolean existeProduto = false;
 		for(Produto p: produtos) {
@@ -94,7 +96,4 @@ public class CarrinhoController extends HttpServlet {
 		
 		req.getRequestDispatcher("/WEB-INF/view/carrinho.jsp").forward(req, resp);
 	}
-	
-	
-
 }

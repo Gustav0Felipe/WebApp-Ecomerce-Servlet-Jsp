@@ -14,14 +14,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 
-<script type="text/javascript" src="js/responsive.js">
-	
-</script>
+<script type="text/javascript" src="js/responsive.js"></script>
 </head>
 <body onresize="mudouTamanhoMenu()" onload="mudouTamanhoMenu()">
 	
-	<!-- Header Cabeçalho. -->
-	<jsp:include page="/cabecalho.jsp"/>
+<jsp:include page="/cabecalho.jsp"/>
 	
 	<section id="section-principal">
 		<div id="anuncio-topo-dinamico">
@@ -40,15 +37,9 @@
 			</c:forEach>	
 		</ol>
 		</div>
-	
 	</section>
 	
-	<footer class="rodape">
-		Site feito por Gustavo Felipe
-	</footer>
+<jsp:include page="/rodape.jsp"/>
 	
-	<script type="text/javascript" src="js/responsive.js">
-	
-	</script>
 </body>
 </html>

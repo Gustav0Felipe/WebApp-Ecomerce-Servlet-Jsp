@@ -28,7 +28,7 @@ create table pedidos(
         data_inicial datetime not null,
         data_final datetime,
         status_ped varchar(30),
-        valor_total decimal(10,2),
+        valor_total decimal(10,2) default(0),
         
         constraint pk_ped primary key(num_ped),
         constraint fk_ped_2 foreign key(cod_cli) references clientes (cod_cli)
@@ -102,9 +102,10 @@ insert admin_sistema_loja values(null, "admin", "123");
 
 select * from clientes;
 select * from log_cad_cliente;
+select * from pedidos_produtos;
 select * from pedidos;
 select * from produtos order by nome_prod;
-select * from pedidos_produtos;
+
 select * from admin_sistema_loja;
 
 insert into categorias values(1 , "Comida");

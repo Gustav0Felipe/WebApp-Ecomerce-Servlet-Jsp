@@ -26,9 +26,9 @@ insert into produtos values (null, nome, descricao, custo, valor, estoque)
 ;
 
 delimiter $$
-create procedure pd_subir_encomenda(in cliente int, in funcionario int, out NumPedido int)
+create procedure pd_subir_encomenda(in cliente int, out NumPedido int)
 begin
-	insert into pedidos values (null, funcionario, cliente, now(), null, "pendente");
+	insert into pedidos values (null, cliente, now(), null, "pendente", 0);
         select last_insert_id() into NumPedido;
 end $$
 delimiter ;

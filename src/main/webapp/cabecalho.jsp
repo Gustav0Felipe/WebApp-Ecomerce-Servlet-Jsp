@@ -1,5 +1,5 @@
 <header>
-	<img alt="Icone do Java" src="favicon.ico" id="logo">
+	<a href="/loja/"><img alt="Icone do Java" src="favicon.ico" id="logo"></a>
 	<div id="pesquisar">
 		<form action="/loja/pesquisar" method="get">
 			<input type="text" id="pesquisa" name="pesquisa" placeholder="Pesquisar"/>

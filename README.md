@@ -19,3 +19,5 @@ Projeto Java - Fazendo um ecomerce com Servlets e JSPS
 - Agora ao pegar os produtos no banco de dados armazenar apenas os nomes para carregar dinamicamente as imagens ao invés de um objeto Produto, ao clicar em um produto que o Objeto sera criado.
 
 - Subi no github os scripts do banco de dados que fiz.
+
+- Ao finalizar a compra na pagina carrinho o pedido é subido no banco de dados, necessario fazer dinamismo com cliente.

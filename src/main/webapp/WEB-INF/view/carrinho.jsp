@@ -16,68 +16,49 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
 
-<script type="text/javascript" src="js/responsive.js">
-	
-</script>
+<script type="text/javascript" src="js/responsive.js"></script>
+<script type="text/javascript" src="js/sessionStorage.js"></script>
 </head>
 <body onresize="mudouTamanhoMenu()" onload="mudouTamanhoMenu()">
 
-	<!-- Header Cabeçalho. -->
-	<jsp:include page="/cabecalho.jsp"/>
+<jsp:include page="/cabecalho.jsp"/>
 
 <section>
-	<!-- LOGICA DE COMPRAS, IMAGENS DINAMICAS E TALZ. -->
-	
 	<h1><span class="material-symbols-outlined">shopping_cart</span> MEU CARRINHO</h1>
 	<div id="resumo">
 		<h2>Resumo</h2>
-		<p>Total: ${pedidoSession.getValorTotal()}</p>
+		<p>Total: ${carrinhoTotalSession}</p>
 	</div>
 	
 	<div id="carrinho">
 		<h3>Produto</h3>
-	
-		<form name="pedidoForm" action="/loja/checkout" method="post">
-		
-			<ol id="carrinhoList">
-				<c:forEach var="produto" items="${pedidoSession.getProdutos()}">
-					<li>
-						<img class="miniatura_produto" src="imagens/${produto.getNome()}.png" alt="Produto ${produto.getNome()} }"/>	
+		<ol id=carrinho_list>
+			<c:forEach var="produto" items="${pedidoSession.getProdutos()}">
+				<li>
+					<img class="miniatura_produto" src="imagens/${produto.getNome()}.png" alt="Produto ${produto.getNome()} }"/>	
 
-						<p>
-							<button type="button" onclick="decrementProduto()"><span class="material-symbols-outlined">remove</span></button>
-							<span> ${produto.getQuantidadePedido()} </span>
-							<button type="button" onclick="incrementProduto()"><span class="material-symbols-outlined">add</span></button>
-							<button type="button" onclick="deleteProduto()"><span class="material-symbols-outlined">delete</span></button>
-						</p>
-					</li>
-					
-					<li>
-						<p class="prod_name">${produto.getNome()}</p>
-					</li>
-				</c:forEach>
-			</ol>
-			
-			<button id="limparCarrinho" type="button"><span class="material-symbols-outlined">delete_forever</span> LIMPAR CARRINHO</button>
-			
-			<h2>Frete e Prazos</h2> 
-			
-			
-			<label for="cep"></label>
-			<input id="cep" name="cep" type="number" size="8" placeholder="CEP *"/>
-			<button id="calcularCep" type="button"><span class="material-symbols-outlined">local_shipping</span> CALCULAR</button>
-		</form>	
+					<p>
+						<button type="button" onclick="decrementProduto(${pedidoSession.getProdutos().indexOf(produto)})"><span class="material-symbols-outlined">remove</span></button>
+						<span> ${produto.getQuantidadePedido()} </span>
+						
+						<button type="button" onclick="incrementProduto(${pedidoSession.getProdutos().indexOf(produto)})"><span class="material-symbols-outlined">add</span></button>
+						<button type="button" onclick="deleteProduto(${pedidoSession.getProdutos().indexOf(produto)})"><span class="material-symbols-outlined">delete</span></button>
+					</p>
+				</li>
+				
+				<li>
+					<p class="prod_name">${produto.getNome()}</p>
+				</li>
+			</c:forEach>
+		</ol>
+		<button id="limpar_carrinho" type="button" onclick="limparCarrinho()"><span class="material-symbols-outlined">delete_forever</span> LIMPAR CARRINHO</button>
 	</div>
 	
 	<div id="finalizar">
-		<button type="button" onclick="finalizarPedido"><span class='material-symbols-outlined'>shopping_cart</span> FINALIZAR PEDIDO</button>
+		<a href="/loja/encomendar"><button type="button"><span class='material-symbols-outlined'>shopping_cart</span> FINALIZAR PEDIDO</button></a>
 	</div>
 </section>
-	
-<footer>
-	Site feito por Gustavo Felipe
-</footer>
 
-
+<jsp:include page="/rodape.jsp"/>
 </body>
 </html>

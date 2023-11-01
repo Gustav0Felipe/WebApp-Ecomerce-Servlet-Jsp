@@ -15,15 +15,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 
-<script type="text/javascript" src="js/responsive.js">
-	
-</script>
+<script type="text/javascript" src="js/responsive.js"></script>
+<script type="text/javascript" src="js/sessionStorage.js"></script>
 </head>
 <body onresize="mudouTamanhoMenu()" onload="mudouTamanhoMenu()">
 
-	<!-- Header Cabeçalho. -->
-	<jsp:include page="/cabecalho.jsp"/>
-
+<jsp:include page="/cabecalho.jsp"/>
 
 <section>
 	<!-- LOGICA DE COMPRAS, IMAGENS DINAMICAS E TALZ. -->
@@ -31,19 +28,19 @@
 	<div id="detalhes">
 		<img src="imagens/${produto.getNome()}.png" alt="Produto"/>	
 		
-		<form action="/loja/cart" method="post">
-		<p id="preco">Preço: ${produto.getValor()}</p>
-		
-		<input type="hidden" name="id"  value="${produto.getId()}"/>
-		<input type="hidden" name="nome"  value="${produto.getNome()}"/>
-		<input type="hidden" name="desc"  value="${produto.getDesc()}"/>
-		<input type="hidden" name="custo" value="${produto.getCusto()}"/>
-		<input type="hidden" name="valor" value="${produto.getValor()}"/>
-		<input type="hidden" name="estoque" value="${produto.getQtd_estq()}"/>
-		<input type="hidden" name="categoria" value="${produto.getCategoria()}"/>
-		
-		<button id="comprar" type="submit"><span class="material-symbols-outlined">shopping_cart</span> Comprar</button>
-		<!-- FAZER SAPORRA AQUI, EU CONSIGO PEGAR O VALOR DA LABEL NO SERVLET PELO ID OU NAME SEILAPORRA -->
+		<!-- action="/loja/cart" method="post" -->
+		<form id="formCarrinho" name="formCarrinho" action="/loja/cart" method="post">
+			<p id="preco">Preço: ${produto.getValor()}</p>
+			 
+			<input type="hidden" id="codigo" name="codigo"  value="${produto.getId()}"/>
+			<input type="hidden" id="nome" name="nome"  value="${produto.getNome()}"/>
+			<input type="hidden" id="desc" name="desc"  value="${produto.getDesc()}"/>
+			<input type="hidden" id="custo" name="custo" value="${produto.getCusto()}"/>
+			<input type="hidden" id="valor" name="valor" value="${produto.getValor()}"/>
+			<input type="hidden" id="estoque" name="estoque" value="${produto.getQtd_estq()}"/>
+			<input type="hidden" id="categoria" name="categoria" value="${produto.getCategoria()}"/>
+			 
+			<button id="comprar" type="submit"><span class="materi al-symbols-outlined">shopping_cart</span> Comprar</button>
 		</form>
 	</div>
 	<ol id="descricao_bar" onclick="clickMenu(descricao)">
@@ -55,12 +52,8 @@
 	</div>
 </div>
 </section>
-	
-<footer>
-	Site feito por Gustavo Felipe
-</footer>
-<script type="text/javascript" src="js/responsive.js">
-	
-	</script>
+
+<jsp:include page="/rodape.jsp"/>
+
 </body>
 </html>

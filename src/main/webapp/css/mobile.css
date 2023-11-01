@@ -36,7 +36,7 @@ header > div > form > input:focus{
 	outline: 0px solid rgb(128, 255, 255);
 }
 
-header > #logo{
+header > a > #logo{
 	display: inline-block;
 	width: 40px;
 }
@@ -202,31 +202,31 @@ div#carrinho {
 	box-shadow: 1px 1px 1px 1px rgb(181, 180, 182, 0.329);	
 }
 
-ol#carrinhoList {
+ol#carrinho_list {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	margin-bottom: 10px;
 }
 
-ol#carrinhoList > li {
+ol#carrinho_list > li {
 	display: flex;
 	flex-direction: column;
 	align-content: space-around;
 }
-ol#carrinhoList > li > p > button {
+ol#carrinho_list > li > p > button {
 	display: inline-block;
 	width: 20px;
 	border-radius: 2px;
 	border: 1px solid  black;
 }
-ol#carrinhoList > li > p > button > span{
+ol#carrinho_list > li > p > button > span{
 	font-size: 1em;
 }
 .miniatura_produto {
 	
 	width: 70px;
 }
-#limparCarrinho{
+#limpar_carrinho{
 	display: flex;
 	width: 150px;
 	margin-left: auto;

@@ -1,9 +1,0 @@
-<img src="imagens/${produtoCompra.getNome()}.png" alt="Produto"/>	
-		<form action="" method="post">
-			<label for="preco">Preço: ${produtoCompra.getValor()}</label>
-			<br>
-			<label for="quantidade">Quantidade: </label>
-			<input type="number" id="quantidade" name="quantidade" size="10">
-			<br>
-			<input type="submit" value="salvar">
-		</form>

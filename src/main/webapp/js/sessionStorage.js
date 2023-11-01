@@ -1,32 +1,28 @@
 
-class Produto{
-    id;
-	
-	nome;
-	
-    desc;
 
-	custo;
-	
-	qtd_estq;
-	
-	valor;
-	
-	categoria;
-	
+function limparCarrinho(){
+	fetch("/loja/cartUpdate", {method: "GET"}).then(window.location.reload(false));
 }
-const document = docu
-function atualizarCarrinho(produtoForm){
-	
-	let produto = new Produto();
-	
-	produto.id = produtoForm.getId();
-	produto.nome = produtoForm.getNome();
-	produto.desc = produtoForm.getDesc();
-	produto.custo = produtoForm.getCusto();
-	produto.qtd_estq = produtoForm.getQtd_estq();
-	produto.valor = produtoForm.getValor();
-	produto.categoria = produtoForm.getCategoria();
-	
-	console.log(produto.nome)
+
+function incrementProduto(indiceProduto){
+	fetch(`/loja/cartUpdate?produtoIndice=${indiceProduto}`, {
+		method: "POST"
+		})
+		
+		.then(window.location.reload(false))
 }
+
+function decrementProduto(indiceProduto){
+	fetch(`/loja/cartUpdate?produtoIndice=${indiceProduto}`, {
+		method: "PUT"
+		})
+		
+		.then(window.location.reload(false))
+}
+
+function deleteProduto(indiceProduto){
+	fetch(`/loja/cartUpdate?produtoIndice=${indiceProduto}`, {method: "DELETE"})
+		.then(window.location.reload(false))
+}
+
+
