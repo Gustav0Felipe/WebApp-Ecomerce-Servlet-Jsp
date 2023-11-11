@@ -26,7 +26,7 @@
 	<!-- LOGICA DE COMPRAS, IMAGENS DINAMICAS E TALZ. -->
 <div id="comprar">
 	<div id="detalhes">
-		<img src="imagens/${produto.getNome()}.png" alt="Produto"/>	
+		<img src="imagens/${produto.getId()}.png" alt="Produto"/>	
 		
 		<!-- action="/loja/cart" method="post" -->
 		<form id="formCarrinho" name="formCarrinho" action="/loja/cart" method="post">

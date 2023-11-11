@@ -10,7 +10,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.annotation.WebFilter;
-import loja.persistencia.DAOLoja;;;
+import loja.persistencia.DAOEcommerce;
 
 @WebFilter(urlPatterns = {
 		"/index.jsp",
@@ -38,7 +38,7 @@ public class PrincipalFilter implements Filter{
 		//context = request.getServletContext();
 		//facade = (UfFacade) context.getAttribute(UfFacade.NAME);
 		
-		request.setAttribute("produtos", DAOLoja.listarNomeProdutos());
+		request.setAttribute("produtos", DAOEcommerce.listarNomeProdutos());
 	
 		context.log("Filtrando Produtos em ação!");
 		

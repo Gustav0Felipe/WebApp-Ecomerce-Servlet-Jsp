@@ -18,43 +18,33 @@
 </head>
 <body onresize="mudouTamanhoMenu()" onload="mudouTamanhoMenu()">
 	
-	<!-- Header Cabeçalho. -->
 	<jsp:include page="/cabecalho.jsp"/>
 	
 	<section id="section-principal">
-	
-	<div id="minhaConta">
-		<span id="accountIcon" class="material-symbols-outlined">account_circle</span>
-		<h1>Meus dados</h1>
-		
-		<form name="formCadastro" action="/loja/account/edit" method="post">
+		<div id="minhaConta">
+			<span id="accountIcon" class="material-symbols-outlined">account_circle</span>
+			<h1>Meus dados</h1>
 			
-				<label for="nome">Nome: </label>
-				<input id="nome" name="nome" type="text" maxlength="255" placeholder="Nome" value="${cliente.getNome()}"/>
+			<form name="formEditar" action="/loja/editar-senha">
 				
-				<label for="cpf">CPF: </label>
-				<input id="cpf" name="cpf" type="text" maxlength="255" placeholder="CPF *" value="${cliente.getCpf()}" />
-				
-				<label for="telefone">Telefone: </label>
-				<input id="telefone" name="telefone" type="tel" placeholder="Telefone" value="${cliente.getTelefone()}"/>
-				
-				<label for="email">Email: </label>
-				<input id="email" name="email" type="email" maxlength="255" placeholder="Email *" value="${cliente.getEmail()}"/>
-				
-				<button id="cadastrar" type="submit">Enviar</button>
-			</form>
-	</div>
-	
-	<div id="meusDados"> </div>
-	
+					<label for="nome">Nome: </label>
+					<input id="nome" name="nome" type="text" maxlength="255" placeholder="Nome" value="${cliente.getNome()}"/>
+					
+					<label for="cpf">CPF: </label>
+					<input id="cpf" name="cpf" type="text" maxlength="255" placeholder="CPF *" value="${cliente.getCpf()}" />
+					
+					<label for="telefone">Telefone: </label>
+					<input id="telefone" name="telefone" type="tel" placeholder="Telefone" value="${cliente.getTelefone()}"/>
+					
+					<label for="email">Email: </label>
+					<input id="email" name="email" type="email" maxlength="255" placeholder="Email *" value="${cliente.getEmail()}"/>
+					
+					<button id="editar" type="submit">Enviar</button>
+				</form>
+		</div>
 	</section>
 	
-	<footer class="rodape">
-		Site feito por Gustavo Felipe
-	</footer>
+	<jsp:include page="/rodape.jsp"/>
 	
-	<script type="text/javascript" src="js/responsive.js">
-	
-	</script>
 </body>
 </html>

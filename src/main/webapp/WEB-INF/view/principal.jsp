@@ -26,14 +26,14 @@
 		</div>
 		<h1>Ofertas do dia</h1>
 		<div id="ofertas">
-		<!-- LOGICA DE OFERTAS, IMAGENS DINAMICAS E TALZ. -->
+		<!-- LOGICA DE OFERTAS, IMAGENS DINAMICAS E AFINS. -->
 		<ol class="produtos">
 			<c:forEach var="p" items="${produtos}">
-			<li class="produto">
-				<a href='/loja/comprar?produto=${p}'>
-				<img class="ofertas" src="imagens/${p}.png"/>	
-				</a>
-			</li>
+				<li class="produto">
+					<a href='/loja/comprar?produto=${p}'>
+					<img class="ofertas" src="imagens/${p}.png"/>	
+					</a>
+				</li>
 			</c:forEach>	
 		</ol>
 		</div>

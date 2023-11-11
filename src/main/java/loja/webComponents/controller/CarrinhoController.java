@@ -58,7 +58,7 @@ public class CarrinhoController extends HttpServlet {
 		}
 	
 		if(session.getAttribute("carrinhoTotalSession") != null) {
-		total = produto.getValor() + (double) session.getAttribute("carrinhoTotalSession");
+			total = produto.getValor() + (double) session.getAttribute("carrinhoTotalSession");
 		}else {
 			total = produto.getValor();
 		}
@@ -75,10 +75,7 @@ public class CarrinhoController extends HttpServlet {
 		session.setAttribute("carrinhoTotalSession", total);
 		
 		
-		//TODO dinamismo cliente
-		pedido.setCliente(9);
 		pedido.setProdutos(produtos);
-		
 		
 		boolean existeProduto = false;
 		for(Produto p: produtos) {
@@ -95,5 +92,98 @@ public class CarrinhoController extends HttpServlet {
 		session.setAttribute("pedidoSession", pedido);
 		
 		req.getRequestDispatcher("/WEB-INF/view/carrinho.jsp").forward(req, resp);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String operacao = req.getParameter("operacao");
+		int indexProduto = Integer.parseInt(req.getParameter("produtoIndice"));
+		
+		HttpSession session = req.getSession(false);
+		Pedido pedido = new Pedido();
+		List<Produto> produtos = new LinkedList<Produto>();
+		
+		double total = (double) session.getAttribute("carrinhoTotalSession");
+		
+		pedido = (Pedido) session.getAttribute("pedidoSession");
+		
+		produtos = (List<Produto>) session.getAttribute("produtosSession");
+		
+		if(produtos == null) {
+			produtos = new ArrayList<>();
+		}
+		
+		session.setAttribute("produtosSession", produtos);
+		
+		Boolean isZero = false;
+		System.out.println(operacao);
+		for(Produto p: produtos) {
+			if(produtos.indexOf(p) == indexProduto) {
+				if(operacao.equals("decrement")) {
+					p.decrementQuantidadePedido();
+					
+					session.setAttribute("carrinhoTotalSession", total - p.getValor());
+						
+					if(p.getQuantidadePedido() < 1){
+						isZero = true;
+					}
+				}else if(operacao.equals("increment")) {
+					p.incrementQuantidadePedido();
+					session.setAttribute("carrinhoTotalSession", total + p.getValor());
+				}
+			}
+		}
+		if(isZero == true) {
+			produtos.remove(indexProduto);
+		}
+		
+		pedido.setProdutos(produtos);
+		
+		session.setAttribute("pedidoSession", pedido);
+		
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String scope = req.getParameter("scope");
+		
+		HttpSession session = req.getSession(true);
+		Pedido pedido = new Pedido();
+		List<Produto> produtos = new LinkedList<Produto>();
+		
+		pedido = (Pedido) session.getAttribute("pedidoSession");
+		
+		produtos = (List<Produto>) session.getAttribute("produtosSession");
+		
+		double total = 0;
+		
+		if(session.getAttribute("carrinhoTotalSession") != null){
+			total = (double) session.getAttribute("carrinhoTotalSession");
+		}
+				
+		if(produtos == null) {
+			produtos = new ArrayList<>();
+		}
+		
+		
+		if(scope.equals("single")) {
+			int indexProduto = Integer.parseInt(req.getParameter("produtoIndice"));
+			Produto produto = produtos.get(indexProduto);
+			session.setAttribute("carrinhoTotalSession", total - (produto.getValor() * produto.getQuantidadePedido()));
+			produtos.remove(indexProduto);
+			pedido.setProdutos(produtos);
+			session.setAttribute("pedidoSession", pedido);
+			session.setAttribute("produtosSession", produtos);
+			
+		}else if(scope.equals("all")) {
+			session.removeAttribute("pedidoSession");
+			session.removeAttribute("produtosSession");
+			session.removeAttribute("carrinhoTotalSession");
+		}
+		
 	}
 }

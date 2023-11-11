@@ -100,13 +100,24 @@ create table admin_sistema_loja (
 );
 insert admin_sistema_loja values(null, "admin", "123");
 
+
+create table credenciamento_email_empresa(
+	email_empresa varchar(100),
+    senha_empresa varchar(30),
+
+	primary key(email_empresa, senha_empresa)
+);
+
+
 select * from clientes;
+select * from cadastro_cliente_loja;
 select * from log_cad_cliente;
 select * from pedidos_produtos;
-select * from pedidos;
+select * from pedidos order by num_ped; 
 select * from produtos order by nome_prod;
-
 select * from admin_sistema_loja;
+select * from credenciamento_email_empresa;
 
 insert into categorias values(1 , "Comida");
 insert into produtos values (3, "Danone", "Um danone de morango", 2.00, 2.50, 100, 1); 
+

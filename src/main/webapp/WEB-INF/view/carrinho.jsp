@@ -35,7 +35,7 @@
 		<ol id=carrinho_list>
 			<c:forEach var="produto" items="${pedidoSession.getProdutos()}">
 				<li>
-					<img class="miniatura_produto" src="imagens/${produto.getNome()}.png" alt="Produto ${produto.getNome()} }"/>	
+					<img class="miniatura_produto" src="imagens/${produto.getId()}.png" alt="Produto ${produto.getNome()}"/>	
 
 					<p>
 						<button type="button" onclick="decrementProduto(${pedidoSession.getProdutos().indexOf(produto)})"><span class="material-symbols-outlined">remove</span></button>

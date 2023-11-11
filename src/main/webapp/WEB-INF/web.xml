@@ -79,7 +79,6 @@
     <servlet-name>CarrinhoOperacoesController</servlet-name>
     <url-pattern>/cartUpdate</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>SubirEncomendaController</display-name>
@@ -89,5 +88,45 @@
   <servlet-mapping>
     <servlet-name>SubirEncomendaController</servlet-name>
     <url-pattern>/encomendar</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditarController</display-name>
+    <servlet-name>EditarController</servlet-name>
+    <servlet-class>loja.webComponents.controller.EditarController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditarController</servlet-name>
+    <url-pattern>/editar</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditarSenhaController</display-name>
+    <servlet-name>EditarSenhaController</servlet-name>
+    <servlet-class>loja.webComponents.controller.EditarSenhaController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditarSenhaController</servlet-name>
+    <url-pattern>/editar-senha</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AutenticarSenhaController</display-name>
+    <servlet-name>AutenticarSenhaController</servlet-name>
+    <servlet-class>loja.webComponents.controller.AutenticarSenhaController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AutenticarSenhaController</servlet-name>
+    <url-pattern>/autenticar-senha</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PerfilController</display-name>
+    <servlet-name>PerfilController</servlet-name>
+    <servlet-class>loja.webComponents.controller.PerfilController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PerfilController</servlet-name>
+    <url-pattern>/perfil</url-pattern>
   </servlet-mapping>
 </web-app>

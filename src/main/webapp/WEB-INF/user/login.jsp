@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Cadastro</title>
+<title>Login</title>
 <link rel="shortcut icon" href="favicon.ico"/>
 <link rel="stylesheet" href="css/mobile.css" media="all">
 <link rel="stylesheet" href="css/mediaquery.css">
@@ -43,9 +43,7 @@
 	
 	</section>
 	
-	<footer class="rodape">
-		Site feito por Gustavo Felipe
-	</footer>
+	<jsp:include page="/rodape.jsp"/>
 	
 	<script type="text/javascript" src="js/responsive.js">
 	

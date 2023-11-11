@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import loja.negocio.Produto;
-import loja.persistencia.DAOLoja;
+import loja.persistencia.DAOEcommerce;
 
 public class ComprarController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -18,7 +18,7 @@ public class ComprarController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		Produto produto = new Produto();
-		produto = DAOLoja.buscarProduto(req.getParameter("produto").toString());
+		produto = DAOEcommerce.buscarProduto(Integer.parseInt(req.getParameter("produto")));
 		
 		//session.setAttribute("produtoCompraSession", produto);
 		req.setAttribute("produto", produto);

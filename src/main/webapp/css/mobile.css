@@ -280,27 +280,27 @@ div#cadastro, div.login {
 	
 	text-align: center;
 }
-div#cadastro, div.login > form{
+div#cadastro > form, div.login > form{
 	display: flex;
 	flex-direction: column;
 }
 
-div#cadastro, div.login > form > input {
+div#cadastro > form > input, div.login > form > input {
 	padding: 5px;
 	margin-top: 5px;
 	border-radius: 5px;
 	border: 1px solid gray;
 }
-div#cadastro, div.login > form > input:focus {
+div#cadastro > form > input:focus, div.login > form > input:focus {
 	border-color:  rgb(255, 176, 98);
 	outline: none;
 	
 }
-div#cadastro, div.login > form > label {
+div#cadastro > form > label, div.login > form > label {
 	display: none;
 }
 
-div#cadastro, div.login > form > #cadastrar{
+div#cadastro > form > #cadastrar, div.login > form > #cadastrar{
 	margin-top: 10px;
 	padding: 5px;
 	border-radius: 5px;

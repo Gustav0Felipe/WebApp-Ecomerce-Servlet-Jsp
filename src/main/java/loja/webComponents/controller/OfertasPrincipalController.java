@@ -17,8 +17,8 @@ public class OfertasPrincipalController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getRequestDispatcher("/WEB-INF/view/principal.jsp").forward(req, resp);
-		List<String> produtos = (List<String>) req.getAttribute("produtos");
-		for(String p : produtos){
+		List<Integer> produtos = (List<Integer>) req.getAttribute("produtos");
+		for(Integer p : produtos){
 			System.out.println(p);
 		}
 	}

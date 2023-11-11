@@ -11,15 +11,15 @@ import java.util.List;
 
 import loja.negocio.Pedido;
 import loja.negocio.Produto;
-import loja.util.LojaUtil;
+import loja.util.EcommerceUtil;
 
 public class DAOGerencia {
 	
 	public static Connection getConnection() throws SQLException {
-		String url = LojaUtil.get("url");
+		String url = EcommerceUtil.get("url");
 	
-		String usuario = LojaUtil.get("usuario");
-		String senha = LojaUtil.get("senha");
+		String usuario = EcommerceUtil.get("usuario");
+		String senha = EcommerceUtil.get("senha");
 
 		Connection conexao = DriverManager.getConnection(url, usuario, senha);
 
@@ -76,7 +76,7 @@ public class DAOGerencia {
 
 	public static void cadastrarUsuario(String user, String pass, String funcionario) {
 		Connection conexao = null;
-		String cmd = LojaUtil.get("cadastro.usuario.sistema");
+		String cmd = EcommerceUtil.get("cadastro.usuario.sistema");
 		
 		try {
 			conexao = getConnection();
@@ -95,7 +95,7 @@ public class DAOGerencia {
 
 	//TODO fazer
 	public static void cadastrarProduto(List<Produto> produtos) {
-		String cmd = LojaUtil.get("cadastro.produtos");
+		String cmd = EcommerceUtil.get("cadastro.produtos");
 		Connection conexao = null;
 		
 		try {
@@ -127,7 +127,7 @@ public class DAOGerencia {
 	//TODO FAZER
 	public static List<Pedido> listarPedidos() {
 		Connection conexao = null;
-		String cmd = LojaUtil.get("listar.pedido");
+		String cmd = EcommerceUtil.get("listar.pedido");
 		List<Pedido> pedidos = new ArrayList<>();
 		
 		try {
@@ -199,7 +199,7 @@ public class DAOGerencia {
 	*/
 	public static Boolean validarAdmin(String usuario, String senha) {
 		Connection conexao = null;
-		String admin = LojaUtil.get("autenticar.admin");
+		String admin = EcommerceUtil.get("autenticar.admin");
 		
 		try {
 			conexao = getConnection();
