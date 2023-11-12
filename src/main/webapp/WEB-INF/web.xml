@@ -129,4 +129,7 @@
     <servlet-name>PerfilController</servlet-name>
     <url-pattern>/perfil</url-pattern>
   </servlet-mapping>
+  <listener>
+    <listener-class>loja.webComponents.listener.ListProdutoListener</listener-class>
+  </listener>
 </web-app>

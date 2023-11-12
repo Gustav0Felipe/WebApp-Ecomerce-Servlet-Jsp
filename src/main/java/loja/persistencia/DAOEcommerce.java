@@ -320,7 +320,7 @@ public class DAOEcommerce {
 	 * 
 	 * @return lista de ids dos produtos.
 	 */
-	public static List<Integer> listarNomeProdutos() {
+	public static List<Integer> listarIdProdutos() {
 		Connection conexao = null;
 		String cmd = EcommerceUtil.get("listar.produto.codigo");
 		List<Integer> produtos = new ArrayList<>();
@@ -356,6 +356,7 @@ public class DAOEcommerce {
 		Connection conexao = null;
 		String cmd = EcommerceUtil.get("buscar.produto");
 		Produto produto = new Produto();
+		
 		try {
 			conexao = getConnection();
 			PreparedStatement ps = conexao.prepareStatement(cmd);

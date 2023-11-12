@@ -7,8 +7,6 @@ import java.util.Random;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
 
-import loja.negocio.Produto;
-
 public class EcommerceUtil {
 	
 	/**
