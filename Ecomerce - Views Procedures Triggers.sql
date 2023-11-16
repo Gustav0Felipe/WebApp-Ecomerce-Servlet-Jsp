@@ -1,7 +1,7 @@
 -- Views:
 
 create or replace view view_produtos as
-select id_prod "Codigo_do_Produto", nome_prod as "Nome_do_produto", desc_prod as "Descricao", custo_prod "Custo", val_prod as "Valor_de_Venda", qtd_estq as "Estoque",
+select id_prod "Codigo", nome_prod as "Nome", desc_prod as "Descricao", custo_prod "Custo", val_prod as "Valor", qtd_estq as "Estoque",
 cod_cat as 'Categoria' from produtos
 ;
 
@@ -11,12 +11,22 @@ select cod_cli as "Id", nome_cli as "Nome", tel_cli "Telefone", email_cli "Email
 
 create or replace view view_pedidos as
 select 
-num_ped as "Pedido", nome_cli as "Cliente", data_inicial as "Data Inicial", 
+pedidos.num_ped as "Pedido", nome_cli as "Cliente", data_inicial as "Data Inicial", 
 data_final as "Data Final", valor_total as "Valor Total", status_ped as "Status" 
+, id_prod as "Produto"
 from pedidos 
 join clientes on pedidos.cod_cli = clientes.cod_cli
+join pedidos_produtos on pedidos.num_ped = pedidos_produtos.num_ped
 ;
 
+create or replace view view_pedidos_produtos as
+select produtos.id_prod "Codigo_do_Produto", nome_prod "Produto", num_ped "Pedido", qtd_prod "Quantidade", produtos.val_prod "Valor" from pedidos_produtos
+join produtos on pedidos_produtos.id_prod = produtos.id_prod
+;
+
+select * from view_pedidos;
+select * from pedidos_produtos;
+select * from produtos;
 create or replace view view_empresa as
 	select email_empresa as "email", senha_empresa as "senha" from credenciamento_email_empresa;
     
@@ -60,9 +70,13 @@ $$
 delimiter ;
 -- Procedures
 
-create procedure pd_cadastro_produto(in nome varchar(75), in descricao varchar(255), in custo decimal(10,2), in valor decimal(10,2), in estoque int) 
-insert into produtos values (null, nome, descricao, custo, valor, estoque)
-;
+delimiter $$
+create procedure pd_cadastro_produto(in nome varchar(75), in descricao varchar(255), in custo decimal(10,2), in valor decimal(10,2), in estoque int, in categoria int, out codigo_do_produto int) 
+begin
+insert into produtos values (null, nome, descricao, custo, valor, estoque, categoria);
+	select last_insert_id() into codigo_do_produto;
+end $$
+delimiter ;
 
 delimiter $$
 create procedure pd_subir_encomenda(in cliente int, out NumPedido int)

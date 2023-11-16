@@ -22,7 +22,7 @@
 	
 	<section id="section-principal">
 	
-	<div class="login">
+	<div class="perfil">
 		<span id="accountIcon" class="material-symbols-outlined">account_circle</span>
 		<h1>Minha Conta</h1>
 		<h2>Informações de Acesso</h2>		

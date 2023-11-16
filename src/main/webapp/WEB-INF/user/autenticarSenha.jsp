@@ -26,9 +26,9 @@
 			<span id="accountIcon" class="material-symbols-outlined">account_circle</span>
 			<h1>Meus dados</h1>
 			
-			<form name="formEditarSenha" action="/loja/autenticar-senha" method="post">
+			<form action="/loja/autenticar-senha" method="post">
 				<label for="senha">Sua senha: </label>
-				<input id="senha" name="senha" type="password" maxlength="30" placeholder="Senha Atual *"/>
+				<input id="senha" name="senha" type="password" maxlength="30" required placeholder="Senha Atual *"/>
 				
 				<button id="editar" type="submit">Enviar</button>
 			</form>

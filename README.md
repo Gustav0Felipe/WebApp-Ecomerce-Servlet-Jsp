@@ -32,6 +32,10 @@ Projeto Java - Fazendo um Ecommerce com Servlets e JSP's
 
 - Mensagens colocadas em algumas JSP's para notificar o usuario, como uma mensagem caso a senha passada na troca de senha seja invalida.
 
+- Agora é possivel fazer login como admin, feita a validação libera a opção de cadastrar um produto, passando uma imagem que vai ser associada a este produto e guardada na pasta imagens dentro de metadata, que sera mostrada na pagina principal.
+
+- Possivel listar pedidos em /admin/pedidos, para fins de teste ainda não possui validação.
+
 ## Á fazer:
 
 - Dinamismo com Javascript e pagina para que o admin possa fazer consultas e adição de novos produtos.

@@ -7,10 +7,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
-import loja.negocio.Pedido;
 import loja.negocio.Produto;
+import loja.negocioView.PedidoView;
 import loja.util.EcommerceUtil;
 
 public class DAOGerencia {
@@ -31,7 +32,7 @@ public class DAOGerencia {
 			try {
 				conexao.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				assert false :("ERRO ao fechar conexão: " + e.getMessage());
 			}
 		}
 	}
@@ -86,7 +87,7 @@ public class DAOGerencia {
 			ps.setString(3, pass);
 			ps.execute();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			assert false :("ERRO ao cadastrar usuario: " + e.getMessage());
 		}finally {
 			closeConnection(conexao);
 		}
@@ -94,63 +95,94 @@ public class DAOGerencia {
 
 
 	//TODO fazer
-	public static void cadastrarProduto(List<Produto> produtos) {
-		String cmd = EcommerceUtil.get("cadastro.produtos");
+	public static int cadastrarProduto(Produto produto, int categoria) {
+		String cmd = EcommerceUtil.get("cadastro.produto");
 		Connection conexao = null;
-		
+		int codigo_do_produto = 0;
 		try {
 			conexao = getConnection();
 			CallableStatement cs = conexao.prepareCall(cmd);
 
 			
-			for(Produto p : produtos) {
-				cs.setString(1, p.getNome());
-				cs.setString(2, p.getDesc());
-				cs.setDouble(3, p.getCusto());
-				cs.setDouble(4, p.getValor());
-				cs.setInt(5, p.getQtd_estq());
-				
-				cs.execute();
-			}
+		
+			cs.setString(1, produto.getNome());
+			cs.setString(2, produto.getDesc());
+			cs.setDouble(3, produto.getCusto());
+			cs.setDouble(4, produto.getValor());
+			cs.setInt(5, produto.getQtd_estq());
+			cs.setInt(6, categoria);
+			cs.registerOutParameter("codigo_do_produto", java.sql.Types.INTEGER);
+			cs.execute();
 			
+			codigo_do_produto = cs.getInt("codigo_do_produto");
 			
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			assert false :("ERRO ao cadastrar produto: " + e.getMessage());
 		}finally {
 			closeConnection(conexao);
 		}
+		return codigo_do_produto;
 	}
 	
-	
-	
-	//TODO FAZER
-	public static List<Pedido> listarPedidos() {
+	/**
+	 * Lista todos os pedidos, para cada pedido vai passar por todos os produtos que tem relação com ele
+	 * na tabela de ligação e colocara todos esses produto na lista de produtos de seu respectivo pedido.
+	 * 
+	 * @return lista de todos os pedidos. 
+	 */
+	public static List<PedidoView> listarPedidos() {
 		Connection conexao = null;
 		String cmd = EcommerceUtil.get("listar.pedido");
-		List<Pedido> pedidos = new ArrayList<>();
-		
+		String listarProdutos = EcommerceUtil.get("listar.pedido.produtos");
+
+		List<PedidoView> pedidos = new ArrayList<>();
+	
 		try {
 			conexao = getConnection();
-			PreparedStatement ps = conexao.prepareStatement(cmd);
+			PreparedStatement ps = conexao.prepareStatement(cmd);			
 			
 			ResultSet rs = ps.executeQuery();
+			
 			while(rs.next()) {
+				
+				List<Produto> produtos = new LinkedList<Produto>();
+				
 				int numeroPedido = rs.getInt("Pedido");
-				String nomeFuncionario = rs.getString("Funcionario");
 				String nomeCliente = rs.getString("Cliente");
 				String dataInicial = rs.getString("Data Inicial");
 				String dataFinal = rs.getString("Data Final");
 				Double valorTotal = rs.getDouble("Valor Total");				
 				String status = rs.getString("Status");
 				
-				//Pedido pedido = new Pedido(numeroPedido, nomeFuncionario, nomeCliente, dataInicial, dataFinal, valorTotal, status);
+				PedidoView pedido = new PedidoView(numeroPedido, nomeCliente, dataInicial, dataFinal, valorTotal, status);
 				
-				//pedidos.add(pedido);
+				PreparedStatement prods = conexao.prepareStatement(listarProdutos);
+				
+				prods.setInt(1, numeroPedido);
+				
+				ResultSet resultProdutos = prods.executeQuery();
+				
+				while(resultProdutos.next()) {
+					Produto produto = new Produto();
+
+					String nomeProduto = resultProdutos.getString("Produto");
+					int quantidade = resultProdutos.getInt("Quantidade");
+					Double valorUnitario = resultProdutos.getDouble("Valor");
+					
+					produto.setNome(nomeProduto);
+					produto.setQuantidadePedido(quantidade);
+					produto.setValor(valorUnitario);
+					
+					produtos.add(produto);
+				}
+				
+				pedido.setProdutos(produtos);
+				pedidos.add(pedido);
 			}
 			
 		} catch (SQLException e) {
-			assert false: "Problema De Sql em ListarPedidos encomeda:" + e.getCause();
+			assert false: "ERRO de sql ao listar pedidos:" + e.getMessage();
 		}finally {
 			closeConnection(conexao);
 		}
@@ -215,7 +247,7 @@ public class DAOGerencia {
 					}
 				}	
 		} catch (SQLException e) {
-			assert false: ("ERRO ao validar admin: " + e.getCause());
+			assert false: ("ERRO ao validar admin: " + e.getMessage());
 
 		}finally {
 			closeConnection(conexao);

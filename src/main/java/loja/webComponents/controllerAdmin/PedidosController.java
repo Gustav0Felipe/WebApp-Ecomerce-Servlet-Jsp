@@ -1,4 +1,4 @@
-package loja.webComponents.controller;
+package loja.webComponents.controllerAdmin;
 
 import java.io.IOException;
 
@@ -7,19 +7,17 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class OfertasPrincipalController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-   
 
-	@Override
+public class PedidosController extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/view/principal.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/adm/pedidos.jsp").forward(req, resp);
 	}
 
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doGet(req, resp);
 	}
 
 }

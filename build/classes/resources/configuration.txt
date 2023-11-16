@@ -6,21 +6,22 @@ autenticar.cliente=call pd_user_cliente(?, ?);
 autenticar.admin=call pd_user_admin(?, ?);
 
 cadastro.cliente=call pd_cadastro_cliente(?, ?, ?, ?, ?);
-cadastro.produtos=call pd_cadastro_produto(?, ?, ?, ?, ?);
+cadastro.produto=call pd_cadastro_produto(?, ?, ?, ?, ?, ?, ?);
 
 cadastro.cliente.sistema=call pd_cadastro_cliente_sistema(?, ?, ?);
 atualizar.dados.cliente=call pd_atualiza_cliente(?, ?, ?);
 autenticar.senha.cliente=call pd_autorizar_alterar_senha(?, ?, ?);
 atualizar.senha.cliente=call pd_editar_senha_cliente(?, ?);
-buscar.credenciais.email.empresa=select * from view_empresa;
 
 
 listar.produto=select * from view_produtos;
 listar.cliente=select * from view_clientes;
 listar.pedido=select * from view_pedidos;
+listar.pedido.produtos = select * from view_pedidos_produtos where Pedido = ?;
+listar.produto.codigo= select Codigo from view_produtos;
 
-listar.produto.codigo= select Codigo_do_Produto from view_produtos;
-buscar.produto = select * from view_produtos where Codigo_do_Produto = ?
+buscar.produto = select * from view_produtos where Codigo = ?;
+buscar.credenciais.email.empresa=select * from view_empresa;
 
 subir.encomenda=call pd_subir_encomenda(?, ?);
 subir.encomenda.itens=call pd_subir_encomenda_itens(?, ? , ?);

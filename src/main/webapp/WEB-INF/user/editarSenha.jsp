@@ -27,9 +27,9 @@
 			<h1>Meus dados</h1>
 			
 			
-			<form action="/loja/editar-senha" method="POST">
+			<form class="formDados" action="/loja/editar-senha" method="POST">
 				<label for="senha">Nova senha: </label>
-				<input id="senha" name="senha" type="password" maxlength="30" placeholder="Nova Senha *"/>
+				<input id="senha" name="senha" type="password" required maxlength="30" placeholder="Nova Senha *"/>
 					
 				<button id="editar" type="submit">Enviar</button>
 			</form>

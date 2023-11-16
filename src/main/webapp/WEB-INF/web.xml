@@ -132,4 +132,34 @@
   <listener>
     <listener-class>loja.webComponents.listener.ListProdutoListener</listener-class>
   </listener>
+  <servlet>
+    <description></description>
+    <display-name>AdminController</display-name>
+    <servlet-name>AdminController</servlet-name>
+    <servlet-class>loja.webComponents.controllerAdmin.AdminController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminController</servlet-name>
+    <url-pattern>/admin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CadastrarProdutoController</display-name>
+    <servlet-name>CadastrarProdutoController</servlet-name>
+    <servlet-class>loja.webComponents.controllerAdmin.CadastrarProdutoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CadastrarProdutoController</servlet-name>
+    <url-pattern>/admin/cadastrar-produto</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PedidosController</display-name>
+    <servlet-name>PedidosController</servlet-name>
+    <servlet-class>loja.webComponents.controllerAdmin.PedidosController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PedidosController</servlet-name>
+    <url-pattern>/admin/pedidos</url-pattern>
+  </servlet-mapping>
 </web-app>

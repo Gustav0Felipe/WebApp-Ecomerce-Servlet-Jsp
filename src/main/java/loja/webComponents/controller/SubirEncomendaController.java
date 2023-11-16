@@ -34,6 +34,9 @@ public class SubirEncomendaController extends HttpServlet {
 				session.removeAttribute("pedidoSession");
 				session.removeAttribute("produtosSession");
 				session.removeAttribute("carrinhoTotalSession");
+				
+				req.setAttribute("messageWindow", "Pedido feito com sucesso!");
+				req.getRequestDispatcher("/mensagem.jsp").forward(req, resp);
 			}else{
 				req.getRequestDispatcher("/WEB-INF/user/login.jsp").forward(req, resp);
 			}

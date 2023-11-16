@@ -25,22 +25,22 @@
 			<span id="accountIcon" class="material-symbols-outlined">account_circle</span>
 			<h1>Meus dados</h1>
 			
-			<form name="formEditar" action="/loja/editar-senha">
+			<form class="formDados" name="formEditar" action="/loja/editar-senha">
 				
 					<label for="nome">Nome: </label>
-					<input id="nome" name="nome" type="text" maxlength="255" placeholder="Nome" value="${cliente.getNome()}"/>
+					<input id="nome" name="nome" type="text" maxlength="255" required placeholder="Nome" value="${cliente.getNome()}"/>
 					
 					<label for="cpf">CPF: </label>
-					<input id="cpf" name="cpf" type="text" maxlength="255" placeholder="CPF *" value="${cliente.getCpf()}" />
+					<input id="cpf" name="cpf" type="text" maxlength="255" required placeholder="CPF *" value="${cliente.getCpf()}" readonly="readonly" />
 					
 					<label for="telefone">Telefone: </label>
-					<input id="telefone" name="telefone" type="tel" placeholder="Telefone" value="${cliente.getTelefone()}"/>
+					<input id="telefone" name="telefone" type="tel" required placeholder="Telefone" value="${cliente.getTelefone()}"/>
 					
 					<label for="email">Email: </label>
-					<input id="email" name="email" type="email" maxlength="255" placeholder="Email *" value="${cliente.getEmail()}"/>
+					<input id="email" name="email" type="email" required maxlength="255" placeholder="Email *" value="${cliente.getEmail()}" readonly="readonly"/>
 					
 					<button id="editar" type="submit">Enviar</button>
-				</form>
+			</form>
 		</div>
 	</section>
 	

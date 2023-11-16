@@ -10,16 +10,15 @@ import loja.negocio.Produto;
 import loja.persistencia.DAOEcommerce;
 
 public class ComprarController extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
-	
-	
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		Produto produto = new Produto();
 		produto = DAOEcommerce.buscarProduto(Integer.parseInt(req.getParameter("produto")));
-		
+		System.out.println(req.getServletContext().getRealPath("/imagens"));
 		//session.setAttribute("produtoCompraSession", produto);
 		req.setAttribute("produto", produto);
 		req.getRequestDispatcher("/WEB-INF/view/comprar.jsp").forward(req, resp);
@@ -28,7 +27,5 @@ public class ComprarController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doGet(req, resp);
-		
 	}
-	
 }

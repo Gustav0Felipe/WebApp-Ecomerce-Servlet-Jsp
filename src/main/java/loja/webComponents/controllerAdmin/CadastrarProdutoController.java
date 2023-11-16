@@ -1,0 +1,85 @@
+package loja.webComponents.controllerAdmin;
+
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.Part;
+import loja.negocio.Produto;
+import loja.persistencia.DAOGerencia;
+
+@MultipartConfig
+public class CadastrarProdutoController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		HttpSession session = req.getSession(true);
+		
+		Boolean auth = (Boolean) session.getAttribute("permitir");
+		System.out.println(auth);
+		if(auth == true) {
+			System.out.println(auth);
+			req.getRequestDispatcher("/WEB-INF/adm/cadastrar_produto.jsp").forward(req, resp);
+		}else{
+			resp.sendRedirect("/loja/admin");
+		}
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		HttpSession session = req.getSession(true);
+		
+		Boolean auth = (Boolean) session.getAttribute("permitir");
+		
+		if(auth == true) {
+		
+			String path = req.getServletContext().getRealPath("/imagens");
+			
+			Produto produto = new Produto();
+			
+			int categoria = Integer.parseInt(req.getParameter("categoria"));
+			
+			produto.setNome(req.getParameter("nome"));
+			produto.setDesc(req.getParameter("desc"));
+			produto.setCusto(Double.parseDouble(req.getParameter("custo")));
+			produto.setValor(Double.parseDouble(req.getParameter("valor")));
+			produto.setQtd_estq(Integer.parseInt(req.getParameter("estoque")));
+			
+			
+			int codigo_do_produto = DAOGerencia.cadastrarProduto(produto, categoria);
+			System.out.println(path + "\\" + codigo_do_produto);
+			
+			if(codigo_do_produto == 0) {
+				req.getRequestDispatcher("/mensagem.jsp").forward(req, resp);
+				return;
+			}
+			
+			try {
+				//Pego todas as partes do formulario.
+				for(Part part : req.getParts()) {
+					//checo se é um arquivo.
+					System.out.println(part.getName());
+					System.out.println(part.getName());
+					if(part.getName().equals("imagem")) {
+						//copio o arquivo, o separator é uma barra para separar, e o getSubmittedFileName vai pegar o nome do arquivo que foi enviado.
+						part.write(path + "\\" + codigo_do_produto + ".png");
+					}
+				}
+				req.setAttribute("messageWindow", "Arquivo carregado com sucesso");
+			}catch(Exception ex){
+				System.out.println("Falha ao salvar arquivo: " + ex.getMessage());
+			}
+			
+			req.getRequestDispatcher("/mensagem.jsp").forward(req, resp);
+		}else{
+			resp.sendRedirect("/loja/admin");
+		}
+	}
+}

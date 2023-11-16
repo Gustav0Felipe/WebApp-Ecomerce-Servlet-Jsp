@@ -15,7 +15,7 @@ public class ListProdutoListener implements ServletContextListener {
 		
 		List<Integer> produtos = DAOEcommerce.listarIdProdutos();
 		
-		context.setAttribute("id_produtos", produtos);
+		context.setAttribute("produtos", produtos);
 		
 		context.log("Produtos carregados no contexto.");
     }

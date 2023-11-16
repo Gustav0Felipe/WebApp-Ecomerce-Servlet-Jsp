@@ -23,26 +23,26 @@
 <jsp:include page="/cabecalho.jsp"/>
 
 <section id="section-principal">
-	<div id="cadastro">
+	<div class="formulario">
 			<span id="createUserIcon" class="material-symbols-outlined">person_add</span>
 			<h1>Criar Conta</h1>
 			<p> Informe seus dados abaixo para criar sua conta </p>
-			<form name="formCadastro" action="/loja/cadastro" method="post">
+			<form action="/loja/cadastro" method="post">
 			
 				<label for="nome">Nome: </label>
-				<input id="nome" name="nome" type="text" maxlength="255" placeholder="Nome"/>
+				<input id="nome" name="nome" type="text" maxlength="255" required placeholder="Nome"/>
 				
 				<label for="cpf">CPF: </label>
-				<input id="cpf" name="cpf" type="text" maxlength="255" placeholder="CPF *"/>
+				<input id="cpf" name="cpf" type="text" maxlength="255" required placeholder="CPF *"/>
 				
 				<label for="telefone">Telefone: </label>
-				<input id="telefone" name="telefone" type="tel" placeholder="Telefone"/>
+				<input id="telefone" name="telefone" type="tel" required placeholder="Telefone"/>
 				
 				<label for="email">Email: </label>
-				<input id="email" name="email" type="email" maxlength="255" placeholder="Email *" autocomplete="on"/>
+				<input id="email" name="email" type="email" maxlength="255" required placeholder="Email *" autocomplete="on"/>
 				
 				<label for="senha">Senha: </label>
-				<input id="senha" name="senha" type="password" min="8" placeholder="Senha *"/>
+				<input id="senha" name="senha" type="password" min="8" required placeholder="Senha *"/>
 				
 				<button id="cadastrar" type="submit">Enviar</button>
 			</form>

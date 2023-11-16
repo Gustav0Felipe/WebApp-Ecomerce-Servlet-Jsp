@@ -45,7 +45,7 @@ public class DAOEcommerce {
 			try {
 				conexao.close();
 			} catch (SQLException e) {
-				assert false: "ERRO ao fechar conexao: " + e.getCause();
+				assert false: "ERRO ao fechar conexao: " + e.getMessage();
 			}
 		}
 	}
@@ -85,7 +85,7 @@ public class DAOEcommerce {
 				
 				
 		} catch (SQLException e) {
-			assert false: "ERRO ao validar login: " + e.getCause();
+			assert false: "ERRO ao validar login: " + e.getMessage();
 		}finally {
 			closeConnection(conexao);
 		}
@@ -121,7 +121,7 @@ public class DAOEcommerce {
 				return autorizar;
 				
 		} catch (SQLException e) {
-			assert false: "ERRO ao autenticar senha: " + e.getCause();
+			assert false: "ERRO ao autenticar senha: " + e.getMessage();
 		}finally {
 			closeConnection(conexao);
 		}
@@ -166,7 +166,7 @@ public class DAOEcommerce {
 			ps.execute();
 			
 		}catch (SQLException e) {
-			assert false: "ERRO ao tentar fazer o cadastro de cliente: " + e.getCause();
+			assert false: "ERRO ao tentar fazer o cadastro de cliente: " + e.getMessage();
 		}finally {
 			closeConnection(conexao);
 		}
@@ -197,7 +197,7 @@ public class DAOEcommerce {
 			ps.execute();
 			
 		}catch (SQLException e) {
-			assert false: "ERRO ao tentar atualizar os dados de um cliente: " + e.getCause();
+			assert false: "ERRO ao tentar atualizar os dados de um cliente: " + e.getMessage();
 		}finally {
 			closeConnection(conexao);
 		}
@@ -225,7 +225,7 @@ public class DAOEcommerce {
 			ps.execute();
 			
 		}catch (SQLException e) {
-			assert false: "ERRO ao tentar atualizar a senha de um cliente: " + e.getCause();
+			assert false: "ERRO ao tentar atualizar a senha de um cliente: " + e.getMessage();
 		}finally {
 			closeConnection(conexao);
 		}
@@ -262,7 +262,7 @@ public class DAOEcommerce {
 			}
 			
 			}catch (SQLException e) {
-				assert false: "ERRO ao tentar obter as credenciais da empresa: " + e.getCause();
+				assert false: "ERRO ao tentar obter as credenciais da empresa: " + e.getMessage();
 			}finally {
 				closeConnection(conexao);
 			}
@@ -270,48 +270,7 @@ public class DAOEcommerce {
 		}
 	
 	
-	/**
-	 * Lista todos os produtos do banco de dados.
-	 * 
-	 * @return Uma lista de produtos.
-	 */
-	public static List<Produto> listarProdutos() {
-		Connection conexao = null;
-		String cmd = EcommerceUtil.get("listar.produto");
-		List<Produto> produtos = new ArrayList<>();
-		
-		try {
-			conexao = getConnection();
-			PreparedStatement ps = conexao.prepareStatement(cmd);
-		
-			ResultSet rs = ps.executeQuery();		
-			
-			while(rs.next()) {
-				 int id = rs.getInt("Codigo_do_Produto");
-				
-				 String nome = rs.getString("Nome_do_produto");
-				
-				 String desc = rs.getString("Descricao");
 	
-				 int qtd_estq = rs.getInt("Estoque");
-				 
-				 double custo = rs.getDouble("Custo");
-				
-				 double valor = rs.getDouble("Valor_de_Venda");
-				 
-				 String categoria = rs.getString("Categoria");
-				 
-				 Produto produto = new Produto(id, nome, desc, custo, qtd_estq, valor, categoria);
-				 
-				 produtos.add(produto);
-			}
-		} catch (SQLException e) {
-			assert false: ("ERRO ao listar produtos: " + e.getCause());
-		}finally {
-			closeConnection(conexao);
-		}
-		return produtos;
-	}
 	
 	
 	/**
@@ -333,13 +292,13 @@ public class DAOEcommerce {
 			
 			while(rs.next()) {
 				
-				 int codigo = rs.getInt("Codigo_do_Produto");
+				 int codigo = rs.getInt("Codigo");
 	
 				 produtos.add(codigo);
 			}
 			
 		} catch (SQLException e) {
-			assert false: ("ERRO ao listar produtos pelo codigo: " + e.getCause());
+			assert false: ("ERRO ao listar produtos pelo codigo: " + e.getMessage());
 		}finally {
 			closeConnection(conexao);
 		}
@@ -367,7 +326,7 @@ public class DAOEcommerce {
 			
 			while(rs.next()) {
 				
-				 int id = rs.getInt("Codigo_do_Produto");
+				 int id = rs.getInt("Codigo");
 					
 				 String nome = rs.getString(2);
 				
@@ -377,7 +336,7 @@ public class DAOEcommerce {
 				 
 				 double custo = rs.getDouble("Custo");
 				
-				 double valor = rs.getDouble("Valor_de_Venda");
+				 double valor = rs.getDouble("Valor");
 				 
 				 String categoria = rs.getString("Categoria");
 				 
@@ -385,8 +344,7 @@ public class DAOEcommerce {
 			
 				}
 		} catch (SQLException e) {
-			assert false: ("ERRO ao buscar produto por nome: " + e.getCause());
-	
+			assert false: ("ERRO ao buscar produto por codigo: " + e.getMessage());
 		}finally {
 			closeConnection(conexao);
 		}
@@ -423,14 +381,14 @@ public class DAOEcommerce {
 			
 			CallableStatement csItens = conexao.prepareCall(subirEncomendaItens);
 			
-			for(int i=0; i< pedido.getProdutos().size(); i = i + 7) {
+			for(int i=0; i< pedido.getProdutos().size(); i = i + 1) {
 				csItens.setInt(1, numeroPedido);
 				csItens.setInt(2, pedido.getProdutos().get(i).getId());//IdProduto
 				csItens.setInt(3, pedido.getProdutos().get(i).getQuantidadePedido());//Quantidade
 				csItens.execute();
 			}
 		} catch (SQLException e) {
-		assert false: "ERRO de Sql em Subir encomenda:" + e.getCause();
+			assert false: "ERRO de Sql em Subir encomenda:" + e.getMessage();
 		}finally {
 		closeConnection(conexao);
 		}
@@ -453,7 +411,7 @@ public class DAOEcommerce {
 			ps.setInt(1, idPedido);
 			ps.execute();		
 		} catch (SQLException e) {
-			assert false: "ERRO De Sql em Finalizar encomenda:" + e.getCause();
+			assert false: "ERRO De Sql em Finalizar encomenda:" + e.getMessage();
 		}
 	}
 }

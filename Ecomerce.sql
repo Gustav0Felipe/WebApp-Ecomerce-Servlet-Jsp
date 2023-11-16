@@ -98,7 +98,7 @@ create table admin_sistema_loja (
     primary key (cod_admin)
     
 );
-insert admin_sistema_loja values(null, "admin", "123");
+insert admin_sistema_loja values(null, "admin@hotmail.com", "123");
 
 
 create table credenciamento_email_empresa(
@@ -112,7 +112,7 @@ create table credenciamento_email_empresa(
 select * from clientes;
 select * from cadastro_cliente_loja;
 select * from log_cad_cliente;
-select * from pedidos_produtos;
+select * from pedidos_produtos order by num_ped;
 select * from pedidos order by num_ped; 
 select * from produtos order by nome_prod;
 select * from admin_sistema_loja;

@@ -56,7 +56,6 @@ Grandes telas - acima de 1200px (como televisões.
 		flex-direction: row;
 		justify-content: space-between;
 		margin: auto;
-		margin-top: 30%;
 		width: 90%;
 		max-width: 900px;
 	

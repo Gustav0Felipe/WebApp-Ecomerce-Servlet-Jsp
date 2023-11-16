@@ -1,25 +1,33 @@
-package loja.negocio;
+package loja.negocioView;
 
 import java.util.List;
 
-public class Pedido {
+import loja.negocio.Produto;
+
+public class PedidoView {
 	
 	
 		private int id;
-		private int cliente;
+		private String cliente;
 		private String dataInicial;
-		private String dataFinal;		
+		private String dataFinal;	
+		private Double valorTotal;
 		private String status;
 		private List<Produto> produtos;
 		
-		public Pedido() {
+		public PedidoView() {
+		
 		}
 
-		public Pedido(int cliente, String dataInicial, String dataFinal,
-				String status) {
+
+		
+		public PedidoView(int idPedido, String cliente, String dataInicial, String dataFinal,
+				Double valorTotal, String status) {
+			this.id = idPedido;
 			this.cliente = cliente;
 			this.dataInicial = dataInicial;
 			this.dataFinal = dataFinal;
+			this.valorTotal = valorTotal;
 			this.status = status;
 		}
 		
@@ -36,10 +44,10 @@ public class Pedido {
 		public void setId(int id) {
 			this.id = id;
 		}
-		public int getCliente() {
+		public String getCliente() {
 			return cliente;
 		}
-		public void setCliente(int cliente) {
+		public void setCliente(String cliente) {
 			this.cliente = cliente;
 		}
 		public String getDataInicial() {
@@ -61,7 +69,12 @@ public class Pedido {
 		public void setStatus(String status) {
 			this.status = status;
 		}
-		
+		public Double getValorTotal() {
+			return valorTotal;
+		}
+		public void setValorTotal(Double valorTotal) {
+			this.valorTotal = valorTotal;
+		}
 	
 
 		
