@@ -414,4 +414,6 @@ public class DAOEcommerce {
 			assert false: "ERRO De Sql em Finalizar encomenda:" + e.getMessage();
 		}
 	}
+
+	
 }

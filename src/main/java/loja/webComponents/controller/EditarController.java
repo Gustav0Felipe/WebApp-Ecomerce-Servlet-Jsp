@@ -3,6 +3,7 @@ package loja.webComponents.controller;
 import java.io.IOException;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -10,6 +11,7 @@ import jakarta.servlet.http.HttpSession;
 import loja.negocio.Cliente;
 import loja.persistencia.DAOEcommerce;
 
+@WebServlet(urlPatterns = {"/editar"})
 public class EditarController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;

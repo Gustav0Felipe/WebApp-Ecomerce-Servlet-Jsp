@@ -20,8 +20,11 @@ listar.pedido=select * from view_pedidos;
 listar.pedido.produtos = select * from view_pedidos_produtos where Pedido = ?;
 listar.produto.codigo= select Codigo from view_produtos;
 
+buscar.pedido= select * from view_pedidos where Pedido = ?;
 buscar.produto = select * from view_produtos where Codigo = ?;
 buscar.credenciais.email.empresa=select * from view_empresa;
+
+
 
 subir.encomenda=call pd_subir_encomenda(?, ?);
 subir.encomenda.itens=call pd_subir_encomenda_itens(?, ? , ?);

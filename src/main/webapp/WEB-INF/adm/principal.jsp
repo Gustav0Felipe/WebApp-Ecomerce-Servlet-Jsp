@@ -22,6 +22,7 @@
 
 <section id="section-principal">
 	<a href="/loja/admin/cadastrar-produto"><button>Cadastrar Produto</button></a>
+	<a href="/loja/admin/pedidos"><button>Listar Pedidos</button></a>
 </section>
 	
 <jsp:include page="/rodape.jsp"/>

@@ -321,3 +321,21 @@ div.login > #accountIcon{
 	padding: 10px;
 }
 
+
+/*Listar pedidos*/
+table {
+	border-collapse: collapse;
+	margin: auto;
+	margin-top: 10px;
+	padding: 5px;
+}
+
+tr.pedido > td, th {
+	padding: 2px;
+	border: 1px solid black;
+}
+
+button.voltar {
+	display: block;
+	margin: 5px auto 5px auto;
+}

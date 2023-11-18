@@ -108,7 +108,7 @@ create table credenciamento_email_empresa(
 	primary key(email_empresa, senha_empresa)
 );
 
-
+select * from view_pedidos;
 select * from clientes;
 select * from cadastro_cliente_loja;
 select * from log_cad_cliente;

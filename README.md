@@ -34,11 +34,13 @@ Projeto Java - Fazendo um Ecommerce com Servlets e JSP's
 
 - Agora é possivel fazer login como admin, feita a validação libera a opção de cadastrar um produto, passando uma imagem que vai ser associada a este produto e guardada na pasta imagens dentro de metadata, que sera mostrada na pagina principal.
 
-- Possivel listar pedidos em /admin/pedidos, para fins de teste ainda não possui validação.
+- Possivel listar pedidos em /admin/pedidos, caso não tenha logado como admin sera redirecionado a pagina de login.
+
+- Na lista de pedidos agora é possivel abrir os detalhes de pedidos especificos.
 
 ## Á fazer:
 
-- Dinamismo com Javascript e pagina para que o admin possa fazer consultas e adição de novos produtos.
+- Dinamismo com Javascript.
 
 - Terminar a logica de negocio da compra, calculo de frete, botões e permitir ao entregador finalizar o pedido.
 

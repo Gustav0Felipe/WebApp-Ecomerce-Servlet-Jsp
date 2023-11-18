@@ -16,7 +16,7 @@ public class EcommerceUtil {
 	 * @return Valor armazenado nesta chave no arquivo configuration.txt
 	 */
 	public static String get(String propriedade) {
-		
+	
 		Properties prop = new Properties();
 		String valor = null;
 		
@@ -78,5 +78,20 @@ public class EcommerceUtil {
 	      .toString();
 
 	    return generatedString;
+	}
+	
+	public static Boolean stringIsInteger(String texto) {
+		
+		Boolean isInteger = false;
+		
+		for(int a=0;a<texto.length();a++) {
+			if(Character.isDigit(texto.charAt(a))) {
+				isInteger = true;
+			}else {
+				return false;
+			}
+		}
+		
+		return isInteger;
 	}
 }

@@ -13,20 +13,17 @@ create or replace view view_pedidos as
 select 
 pedidos.num_ped as "Pedido", nome_cli as "Cliente", data_inicial as "Data Inicial", 
 data_final as "Data Final", valor_total as "Valor Total", status_ped as "Status" 
-, id_prod as "Produto"
 from pedidos 
 join clientes on pedidos.cod_cli = clientes.cod_cli
-join pedidos_produtos on pedidos.num_ped = pedidos_produtos.num_ped
 ;
 
 create or replace view view_pedidos_produtos as
-select produtos.id_prod "Codigo_do_Produto", nome_prod "Produto", num_ped "Pedido", qtd_prod "Quantidade", produtos.val_prod "Valor" from pedidos_produtos
+select produtos.id_prod "Codigo_do_Produto", nome_prod "Produto", num_ped "Pedido", qtd_prod "Quantidade_do_Pedido", produtos.val_prod "Valor" 
+, cod_cat "Categoria"
+from pedidos_produtos
 join produtos on pedidos_produtos.id_prod = produtos.id_prod
 ;
 
-select * from view_pedidos;
-select * from pedidos_produtos;
-select * from produtos;
 create or replace view view_empresa as
 	select email_empresa as "email", senha_empresa as "senha" from credenciamento_email_empresa;
     

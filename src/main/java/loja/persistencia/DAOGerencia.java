@@ -134,7 +134,6 @@ public class DAOGerencia {
 	public static List<PedidoView> listarPedidos() {
 		Connection conexao = null;
 		String cmd = EcommerceUtil.get("listar.pedido");
-		String listarProdutos = EcommerceUtil.get("listar.pedido.produtos");
 
 		List<PedidoView> pedidos = new ArrayList<>();
 	
@@ -146,8 +145,6 @@ public class DAOGerencia {
 			
 			while(rs.next()) {
 				
-				List<Produto> produtos = new LinkedList<Produto>();
-				
 				int numeroPedido = rs.getInt("Pedido");
 				String nomeCliente = rs.getString("Cliente");
 				String dataInicial = rs.getString("Data Inicial");
@@ -156,6 +153,47 @@ public class DAOGerencia {
 				String status = rs.getString("Status");
 				
 				PedidoView pedido = new PedidoView(numeroPedido, nomeCliente, dataInicial, dataFinal, valorTotal, status);
+				
+				pedidos.add(pedido);
+			}
+		} catch (SQLException e) {
+			assert false: "ERRO de sql ao listar pedidos:" + e.getMessage();
+		}finally {
+			closeConnection(conexao);
+		}
+		return pedidos;
+	}
+	
+	
+	public static PedidoView buscarPedido(String value) {
+		Connection conexao = null;
+		
+		String cmd = EcommerceUtil.get("buscar.pedido");
+		String listarProdutos = EcommerceUtil.get("listar.pedido.produtos");
+		
+		int numeroPedido = Integer.parseInt(value);
+		
+		PedidoView pedido = null;
+		
+		List<Produto> produtos = new LinkedList<Produto>();
+		
+		try {
+			conexao = getConnection();
+		
+			PreparedStatement ps = conexao.prepareStatement(cmd);
+			
+			ps.setInt(1, numeroPedido);
+	
+			ResultSet rs = ps.executeQuery();
+	
+			if(rs.next()) {
+				String nomeCliente = rs.getString("Cliente");
+				String dataInicial = rs.getString("Data Inicial");
+				String dataFinal = rs.getString("Data Final");
+				Double valorTotal = rs.getDouble("Valor Total");				
+				String status = rs.getString("Status");
+			
+				pedido = new PedidoView(numeroPedido, nomeCliente, dataInicial, dataFinal, valorTotal, status);
 				
 				PreparedStatement prods = conexao.prepareStatement(listarProdutos);
 				
@@ -167,68 +205,28 @@ public class DAOGerencia {
 					Produto produto = new Produto();
 
 					String nomeProduto = resultProdutos.getString("Produto");
-					int quantidade = resultProdutos.getInt("Quantidade");
+					String categoria = resultProdutos.getString("Categoria");
+					int quantidade = resultProdutos.getInt("Quantidade_do_Pedido");
 					Double valorUnitario = resultProdutos.getDouble("Valor");
 					
+					produto.setId(numeroPedido);
 					produto.setNome(nomeProduto);
+					produto.setCategoria(categoria);
 					produto.setQuantidadePedido(quantidade);
 					produto.setValor(valorUnitario);
 					
 					produtos.add(produto);
 				}
-				
 				pedido.setProdutos(produtos);
-				pedidos.add(pedido);
 			}
-			
-		} catch (SQLException e) {
-			assert false: "ERRO de sql ao listar pedidos:" + e.getMessage();
-		}finally {
-			closeConnection(conexao);
+		}catch(SQLException e){
+			assert false: "ERRO De Sql em buscar encomenda:" + e.getMessage();
 		}
-		
-		return pedidos;
+		return pedido;
 	}
 	
 	
 	
-	/*TODO Averiguar necessidade.
-	public static List<Cliente> listarClientes() {
-		Connection conexao = null;
-		String cmd = LojaUtil.get("listar.cliente");
-		List<Cliente> clientes = new ArrayList<>();
-		try {
-			conexao = getConnection();
-			PreparedStatement ps = conexao.prepareStatement(cmd);
-			
-			ResultSet result = ps.executeQuery();
-			
-			while(result.next()) {
-				
-				int id = result.getInt(1);
-		
-				String nome = result.getString(2);
-		
-				String telefone = result.getString(3);
-				
-				String email = result.getString(4);
-
-				String cpf = result.getString(5);
-				
-				
-				Cliente cliente = new Cliente(id, nome, telefone, email, cpf);
-			
-				clientes.add(cliente);
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			closeConnection(conexao);
-		}
-		return clientes;
-	}
-	*/
 	public static Boolean validarAdmin(String usuario, String senha) {
 		Connection conexao = null;
 		String admin = EcommerceUtil.get("autenticar.admin");
