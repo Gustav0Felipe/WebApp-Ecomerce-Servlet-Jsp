@@ -64,12 +64,20 @@
 				</tr>
 		</table>
 		
-		<a href="/loja/admin/pedidos">
+		<a href="/loja/admin/pedidos/finalizar/${pedido.getId()}" class="buttonLink">
+		<button class="finalizar">
+				Finalizar Pedido
+		</button>
+		</a>
+		
+		
+		<a href="/loja/admin/pedidos" class="buttonLink">
 		<button class="voltar">
 			<span class="material-symbols-outlined">
 				arrow_back
 			</span>
-		</button></a>
+		</button>
+		</a>
 		</div>
 	</section>
 	

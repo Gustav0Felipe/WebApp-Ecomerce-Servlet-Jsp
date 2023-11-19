@@ -165,13 +165,13 @@ public class DAOGerencia {
 	}
 	
 	
-	public static PedidoView buscarPedido(String value) {
+	public static PedidoView buscarPedido(int idPedido) {
 		Connection conexao = null;
 		
 		String cmd = EcommerceUtil.get("buscar.pedido");
 		String listarProdutos = EcommerceUtil.get("listar.pedido.produtos");
 		
-		int numeroPedido = Integer.parseInt(value);
+		int numeroPedido = idPedido;
 		
 		PedidoView pedido = null;
 		

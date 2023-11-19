@@ -41,7 +41,7 @@
 					<td>${p.getValorTotal()} </td>
 					<td>${p.getStatus()}</td>
 					<td>
-						<a href="/loja/admin/pedidos/${p.getId()}">
+						<a href="/loja/admin/pedidos/${p.getId()}" class="buttonLink"> 
 						<span class="material-symbols-outlined">arrow_forward</span>
 						</a>
 					</td>

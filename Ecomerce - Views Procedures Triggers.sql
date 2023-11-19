@@ -93,7 +93,7 @@ end $$
 delimiter ;
 
 create procedure pd_finalizar_encomenda(in pedido int)
-	update pedidos set data_final = now() where num_ped = pedido;
+	update pedidos set data_final = now(), status_ped = "finalizado" where num_ped = pedido;
 
 create procedure pd_user_admin(in usuario varchar(50), in senha varchar(30))
 select user_admin as "Nome"

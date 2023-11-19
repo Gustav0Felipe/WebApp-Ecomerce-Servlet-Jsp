@@ -38,11 +38,13 @@ Projeto Java - Fazendo um Ecommerce com Servlets e JSP's
 
 - Na lista de pedidos agora é possivel abrir os detalhes de pedidos especificos.
 
+- Ao abrir os detalhes do pedido existe a opção de finaliza-lo, a data final sera colocada como a data atual, e o status mudara para finalizado.
+
 ## Á fazer:
 
 - Dinamismo com Javascript.
 
-- Terminar a logica de negocio da compra, calculo de frete, botões e permitir ao entregador finalizar o pedido.
+- Terminar a logica de negocio da compra, calculo de frete, botões 
 
 - Ajustar CSS para diferentes tamanhos de tela.
 

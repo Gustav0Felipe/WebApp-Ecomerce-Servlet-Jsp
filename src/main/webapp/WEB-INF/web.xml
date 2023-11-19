@@ -9,4 +9,14 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>PedidoFinalizarController</display-name>
+    <servlet-name>PedidoFinalizarController</servlet-name>
+    <servlet-class>loja.webComponents.controllerAdmin.PedidoFinalizarController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PedidoFinalizarController</servlet-name>
+    <url-pattern>/admin/pedidos/finalizar/*</url-pattern>
+  </servlet-mapping>
 </web-app>

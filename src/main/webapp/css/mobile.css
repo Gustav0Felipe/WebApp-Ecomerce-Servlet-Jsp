@@ -339,3 +339,19 @@ button.voltar {
 	display: block;
 	margin: 5px auto 5px auto;
 }
+
+a.buttonLink{
+	text-decoration: none;
+}
+
+a.buttonLink:visited {
+	text-decoration: none;
+	color: black;
+}
+
+.finalizar {
+	display: block;
+	margin: 5px auto 5px auto;
+
+	font-size: 1.25em; 
+}
