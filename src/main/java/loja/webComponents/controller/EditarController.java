@@ -37,9 +37,19 @@ public class EditarController extends HttpServlet {
 		String nome = req.getParameter("nome");
 		String telefone = req.getParameter("telefone");
 		int idCliente = cliente.getId();
-		DAOEcommerce.atualizarDadosCliente(idCliente , nome, telefone);
+		Boolean sucesso = DAOEcommerce.atualizarDadosCliente(idCliente , nome, telefone);
 		
-		req.setAttribute("messageWindow", "Dados alterados com sucesso.");
+		String msg = "";
+		if(sucesso) {
+			cliente.setNome(nome);
+			cliente.setTelefone(telefone);
+		
+			session.setAttribute("cliente", cliente);
+			msg = "Dados alterados com sucesso.";
+		}else {
+			msg = "Falha na alteração de dados.";
+		}
+		req.setAttribute("messageWindow", msg);
 		req.getRequestDispatcher("/mensagem.jsp").forward(req, resp);
 		}else {
 			resp.sendRedirect("/loja/login");

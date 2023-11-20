@@ -180,7 +180,7 @@ public class DAOEcommerce {
 	 * @param nome = nome do cliente.
 	 * @param telefone = telefone do cliente.
 	 */
-	public static void atualizarDadosCliente(int cliente,String nome, String telefone) {
+	public static Boolean atualizarDadosCliente(int cliente,String nome, String telefone) {
 		
 		Connection conexao = null;
 	
@@ -196,8 +196,10 @@ public class DAOEcommerce {
 			
 			ps.execute();
 			
+			return true;
 		}catch (SQLException e) {
 			assert false: "ERRO ao tentar atualizar os dados de um cliente: " + e.getMessage();
+			return false;
 		}finally {
 			closeConnection(conexao);
 		}

@@ -25,7 +25,7 @@
 			<span id="accountIcon" class="material-symbols-outlined">account_circle</span>
 			<h1>Alterar meus dados</h1>
 			<p>É possivel alterar apenas Nome e Telefone.</p>
-			<form name="formEditar" action="/loja/perfil/editar">
+			<form name="formEditar" action="/loja/perfil/editar" method="post">
 				
 					<label for="nome">Nome: </label>
 					<input id="nome" name="nome" type="text" maxlength="255" required placeholder="Nome" value="${cliente.getNome()}"/>

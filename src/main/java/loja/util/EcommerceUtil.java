@@ -42,9 +42,9 @@ public class EcommerceUtil {
 		try {
 			
 			HtmlEmail htmlEmail = new HtmlEmail();
-			htmlEmail.setHtmlMsg("<meta charset=\"UTF-8\">"
-					+ "<h1>Aviso!: Tentaram alterar a senha de sua conta no site Ecommerce</h1>"
-					+ "<p>Se não foi você IGNORE ESTA MENSAGEM.</p>"
+			htmlEmail.setHtmlMsg(
+					 "<h1>Aviso!: Tentaram alterar a senha de sua conta no site Ecommerce</h1>"
+					+ "<p>Se for o dono da conta, IGNORE ESTA MENSAGEM.</p>"
 					+ String.format("<a href='http://192.168.100.16:8080/loja/editar-senha?auth=%s'>Para prosseguir e alterar sua senha clique aqui.<a>", token)
 					);
 			htmlEmail.addTo(destinatario);//destinatario
