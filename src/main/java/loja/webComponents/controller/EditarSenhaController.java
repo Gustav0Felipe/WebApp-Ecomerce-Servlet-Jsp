@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpSession;
 import loja.negocio.Cliente;
 import loja.persistencia.DAOEcommerce;
 
-@WebServlet(urlPatterns = {"/editar-senha"})
+@WebServlet(urlPatterns = {"/perfil/editar-senha"})
 public class EditarSenhaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -24,18 +24,18 @@ public class EditarSenhaController extends HttpServlet {
 		
 		if(cliente != null) {
 			if(req.getParameter("auth") == null) {
-				req.getRequestDispatcher("/WEB-INF/user/autenticarSenha.jsp").forward(req, resp);
+				resp.sendRedirect("/loja/perfil/editar-senha/autenticar");
 			}else {
 				if(session.getAttribute("token") != null && session.getAttribute("token").equals(req.getParameter("auth"))) {
 					req.getRequestDispatcher("/WEB-INF/user/editarSenha.jsp").forward(req, resp);
 					}
 				else {
-					req.getRequestDispatcher("/WEB-INF/user/perfil.jsp").forward(req, resp);
+					resp.sendRedirect("/loja/perfil");
 				}
 			}
 		}
 		else {
-			req.getRequestDispatcher("/WEB-INF/user/login.jsp").forward(req, resp);
+			resp.sendRedirect("/loja/login");
 		}
 	}
 

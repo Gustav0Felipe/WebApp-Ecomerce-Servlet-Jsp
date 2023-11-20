@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page import="loja.negocio.Produto"%>
 <!DOCTYPE html>
@@ -8,29 +8,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>Comprar</title>
-<link rel="stylesheet" href="css/mobile.css" media="all">
-<link rel="shortcut icon" href="favicon.ico"/>
-<link rel="stylesheet" href="css/mediaquery.css" media="all">
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/favicon.ico"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/mobile.css" media="all">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/mediaquery.css" media="all">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 
-<script type="text/javascript" src="js/responsive.js"></script>
-<script type="text/javascript" src="js/sessionStorage.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/responsive.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/sessionStorage.js"></script>
 </head>
 <body onresize="mudouTamanhoMenu()" onload="mudouTamanhoMenu()">
 
 <jsp:include page="/cabecalho.jsp"/>
 
 <section>
-	<!-- LOGICA DE COMPRAS, IMAGENS DINAMICAS E TALZ. -->
+	
 <div id="comprar">
 	<div id="detalhes">
 		<img src="imagens/${produto.getId()}.png" alt="Produto"/>	
 		
-		<!-- action="/loja/cart" method="post" -->
 		<form id="formCarrinho" name="formCarrinho" action="/loja/cart" method="post">
-			<p id="preco">Preço: ${produto.getValor()}</p>
+			<p id="preco">PreÃ§o: ${produto.getValor()}</p>
 			 
 			<input type="hidden" id="codigo" name="codigo"  value="${produto.getId()}"/>
 			<input type="hidden" id="nome" name="nome"  value="${produto.getNome()}"/>
@@ -44,7 +43,7 @@
 		</form>
 	</div>
 	<ol id="descricao_bar" onclick="clickMenu(descricao)">
-	<li>Descrição do produto</li>
+	<li>DescriÃ§Ã£o do produto</li>
 	<li id="dropdown"class="material-symbols-outlined">expand_more</li>
 	</ol>
 	<div id="descricao">

@@ -22,7 +22,7 @@ public class PerfilController extends HttpServlet {
 		Cliente cliente = (Cliente) session.getAttribute("cliente");
 		
 		if(cliente == null) {
-			req.getRequestDispatcher("/WEB-INF/user/login.jsp").forward(req, resp);
+			resp.sendRedirect("/loja/login");
 		}else {
 			session.setAttribute("cliente", cliente);
 			req.getRequestDispatcher("/WEB-INF/user/perfil.jsp").forward(req, resp);

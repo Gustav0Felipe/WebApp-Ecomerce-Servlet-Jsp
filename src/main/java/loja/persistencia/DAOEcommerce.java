@@ -283,7 +283,7 @@ public class DAOEcommerce {
 		Connection conexao = null;
 		String cmd = EcommerceUtil.get("listar.produto.codigo");
 		List<Integer> produtos = new ArrayList<>();
-		
+	
 		try {
 			conexao = getConnection();
 			PreparedStatement ps = conexao.prepareStatement(cmd);
@@ -326,26 +326,25 @@ public class DAOEcommerce {
 			
 			while(rs.next()) {
 				
-				 int id = rs.getInt("Codigo");
+				int id = rs.getInt("Codigo");
 					
-				 String nome = rs.getString(2);
+				String nome = rs.getString(2);
 				
-				 String desc = rs.getString("Descricao");
+				String desc = rs.getString("Descricao");
 	
-				 int qtd_estq = rs.getInt("Estoque");
+				int qtd_estq = rs.getInt("Estoque");
 				 
-				 double custo = rs.getDouble("Custo");
+				double custo = rs.getDouble("Custo");
 				
-				 double valor = rs.getDouble("Valor");
+				double valor = rs.getDouble("Valor");
 				 
-				 String categoria = rs.getString("Categoria");
+				String categoria = rs.getString("Categoria");
 				 
-				 produto = new Produto(id, nome, desc, custo, qtd_estq, valor, categoria);
-			
+				produto = new Produto(id, nome, desc, custo, qtd_estq, valor, categoria);
 				}
 		} catch (SQLException e) {
 			assert false: ("ERRO ao buscar produto por codigo: " + e.getMessage());
-		}finally {
+		}finally{
 			closeConnection(conexao);
 		}
 		return produto;
@@ -415,5 +414,4 @@ public class DAOEcommerce {
 		}
 	}
 
-	
 }

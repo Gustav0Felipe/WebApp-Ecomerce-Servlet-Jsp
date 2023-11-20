@@ -157,6 +157,7 @@ div#descricao{
 	display: none;
 	width: 90%;
 	max-width: 300px;
+	min-height: 200px;
 	margin: auto;
 	border: 1px solid rgb(209, 209, 209, 0.30);
 }
@@ -177,6 +178,20 @@ div#detalhes > form {
 }
 
 
+/* Perfil*/
+div.perfil{
+	margin: auto;
+	width: 90%;
+	max-width: 900px;
+}
+
+div#cadastro > form >  #editar{
+	margin-top: 10px;
+	padding: 5px;
+	border-radius: 5px;
+	color: #fff;
+	background-color: rgb(255, 128, 0);
+}
 
 
 /* Pagina Carrinho*/
@@ -307,7 +322,8 @@ div#cadastro > form > #cadastrar, div.login > form > #cadastrar{
 	color: #fff;
 	background-color: rgb(255, 128, 0);
 }
-div#cadastro > #createUserIcon {
+
+#createUserIcon {
 	font-size: 2em; 
 	margin-top: 10px;
 	padding: 10px;
@@ -315,7 +331,7 @@ div#cadastro > #createUserIcon {
 	border-radius: 50%;
 }
 
-div.login > #accountIcon{
+#accountIcon{
 	font-size: 3em; 
 	margin-top: 10px;
 	padding: 10px;

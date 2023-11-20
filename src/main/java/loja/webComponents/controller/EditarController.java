@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpSession;
 import loja.negocio.Cliente;
 import loja.persistencia.DAOEcommerce;
 
-@WebServlet(urlPatterns = {"/editar"})
+@WebServlet(urlPatterns = {"/perfil/editar"})
 public class EditarController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -22,11 +22,7 @@ public class EditarController extends HttpServlet {
 		Cliente cliente = (Cliente) session.getAttribute("cliente");
 		
 		if(cliente != null) {
-			if(req.getParameter("edit") == null) {
 				req.getRequestDispatcher("/WEB-INF/user/perfilEditar.jsp").forward(req, resp);
-			}else {
-				req.getRequestDispatcher("/WEB-INF/user/editarSenha.jsp").forward(req, resp);
-			}
 		}else {
 			resp.sendRedirect("/loja/login");
 		}
@@ -43,7 +39,8 @@ public class EditarController extends HttpServlet {
 		int idCliente = cliente.getId();
 		DAOEcommerce.atualizarDadosCliente(idCliente , nome, telefone);
 		
-		req.getRequestDispatcher("/WEB-INF/user/perfilEditar.jsp").forward(req, resp);
+		req.setAttribute("messageWindow", "Dados alterados com sucesso.");
+		req.getRequestDispatcher("/mensagem.jsp").forward(req, resp);
 		}else {
 			resp.sendRedirect("/loja/login");
 		}

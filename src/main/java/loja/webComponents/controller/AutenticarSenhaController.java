@@ -13,7 +13,7 @@ import loja.negocio.Cliente;
 import loja.persistencia.DAOEcommerce;
 import loja.util.EcommerceUtil;
 
-@WebServlet(urlPatterns = {"/autenticar-senha"})
+@WebServlet(urlPatterns = {"/perfil/editar-senha/autenticar"})
 public class AutenticarSenhaController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;

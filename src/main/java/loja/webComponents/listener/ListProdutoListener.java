@@ -5,8 +5,11 @@ import java.util.List;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
 import loja.persistencia.DAOEcommerce;
 
+
+@WebListener
 public class ListProdutoListener implements ServletContextListener {
 
 	@Override

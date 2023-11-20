@@ -27,7 +27,7 @@ public class LoginController extends HttpServlet {
 			req.getRequestDispatcher("/WEB-INF/user/login.jsp").forward(req, resp);
 		}else {
 			session.setAttribute("cliente", cliente);
-			req.getRequestDispatcher("/WEB-INF/user/perfil.jsp").forward(req, resp);
+			resp.sendRedirect("/loja/perfil");
 		}
 	}
 
@@ -42,7 +42,7 @@ public class LoginController extends HttpServlet {
 			resp.sendRedirect("/loja/login");
 		}else {
 			session.setAttribute("cliente", cliente);
-			req.getRequestDispatcher("/WEB-INF/user/perfil.jsp").forward(req, resp);
+			resp.sendRedirect("/loja/perfil");
 		}
 	}
 }

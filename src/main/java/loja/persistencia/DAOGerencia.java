@@ -37,44 +37,6 @@ public class DAOGerencia {
 		}
 	}
 
-	/* TODO REFORMULAR ISTO. 
-	public static List<Pedido> emitirRelatorio(int ano, int mes) {
-		Connection conexao = null;
-		String cmd = LojaUtil.get("emitir.relatorio");
-		List<Pedido> pedidos = new ArrayList<>();
-		
-		try {
-			conexao = getConnection();
-			PreparedStatement ps = conexao.prepareStatement(cmd);
-			ps.setInt(1, ano);
-			ps.setInt(2, mes);
-			
-			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
-				int numeroPedido = rs.getInt("Pedido");
-				String nomeFuncionario = rs.getString("Funcionario");
-				String nomeCliente = rs.getString("Cliente");
-				String dataInicial = rs.getString("Data Inicial");
-				String dataFinal = rs.getString("Data Final");
-				Double valorTotal = rs.getDouble("Valor Total");				
-				String status = rs.getString("Status");
-				
-				
-				Pedido pedido = new Pedido(numeroPedido, nomeFuncionario, nomeCliente, dataInicial, dataFinal, valorTotal, status);
-				
-				pedidos.add(pedido);
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			closeConnection(conexao);
-		}
-		
-		return pedidos;
-	}
-	*/
-
 	public static void cadastrarUsuario(String user, String pass, String funcionario) {
 		Connection conexao = null;
 		String cmd = EcommerceUtil.get("cadastro.usuario.sistema");
@@ -94,17 +56,15 @@ public class DAOGerencia {
 	}
 
 
-	//TODO fazer
 	public static int cadastrarProduto(Produto produto, int categoria) {
 		String cmd = EcommerceUtil.get("cadastro.produto");
 		Connection conexao = null;
 		int codigo_do_produto = 0;
+		
 		try {
 			conexao = getConnection();
 			CallableStatement cs = conexao.prepareCall(cmd);
 
-			
-		
 			cs.setString(1, produto.getNome());
 			cs.setString(2, produto.getDesc());
 			cs.setDouble(3, produto.getCusto());
@@ -115,7 +75,6 @@ public class DAOGerencia {
 			cs.execute();
 			
 			codigo_do_produto = cs.getInt("codigo_do_produto");
-			
 			
 		} catch (SQLException e) {
 			assert false :("ERRO ao cadastrar produto: " + e.getMessage());
@@ -225,8 +184,6 @@ public class DAOGerencia {
 		return pedido;
 	}
 	
-	
-	
 	public static Boolean validarAdmin(String usuario, String senha) {
 		Connection conexao = null;
 		String admin = EcommerceUtil.get("autenticar.admin");
@@ -253,4 +210,6 @@ public class DAOGerencia {
 		}
 		return false;
 	}
+	
 }
+

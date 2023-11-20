@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -31,8 +31,8 @@
 				<label for="nome">Nome: </label>
 				<input id="nome" name="nome" type="text" required maxlength="255" placeholder="Nome"/>
 				
-				<label for="desc">descrição: </label>
-				<input id="desc" name="desc" maxlength="255" required placeholder="descrição"/>
+				<label for="desc">descriÃ§Ã£o: </label>
+				<input id="desc" name="desc" maxlength="255" required placeholder="descriÃ§Ã£o"/>
 				
 				<label for="custo">Custo: </label>
 				<input id="custo" name="custo" type="number" required maxlength="10" placeholder="Custo *" autocomplete="on"/>

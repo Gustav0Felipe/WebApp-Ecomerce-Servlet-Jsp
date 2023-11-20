@@ -49,20 +49,30 @@ Grandes telas - acima de 1200px (como televisões.
 		width: 22.5vw;
 	}
 	
-	
-	/*AQUI DEPOIS COLOCAR  O COMPRAR DO LADO.*/
 	div#detalhes{
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		margin: auto;
+		margin: 30px auto 0px auto;
 		width: 90%;
 		max-width: 900px;
 	
 		border: 1px solid rgb(3, 3, 3, 0.50);
 		border-radius: 5px;
 	}
+	
 	div#detalhes > img {
 		width: 200px;
+	}
+	
+	ol#descricao_bar{
+		width: 90%;
+		max-width: 900px;
+	}
+	
+	div#descricao{
+	width: 90%;
+	max-width: 900px;
+	min-height: 200px;
 	}
 }
