@@ -75,7 +75,7 @@ public class DAOGerencia {
 			cs.execute();
 			
 			codigo_do_produto = cs.getInt("codigo_do_produto");
-			
+			System.out.println(codigo_do_produto);
 		} catch (SQLException e) {
 			assert false :("ERRO ao cadastrar produto: " + e.getMessage());
 		}finally {

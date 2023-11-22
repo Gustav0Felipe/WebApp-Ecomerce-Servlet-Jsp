@@ -26,7 +26,7 @@
 	<div id="cadastro">
 			<span id="createUserIcon" class="material-symbols-outlined">person_add</span>
 			<h1>Novo produto: </h1>
-			<form class="formDados" action="/loja/admin" method="post" enctype="multipart/form-data">
+			<form class="formDados" action="/loja/admin/cadastrar-produto" method="post" enctype="multipart/form-data">
 						
 				<label for="nome">Nome: </label>
 				<input id="nome" name="nome" type="text" required maxlength="255" placeholder="Nome"/>

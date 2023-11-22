@@ -42,10 +42,11 @@ public class EcommerceUtil {
 		try {
 			
 			HtmlEmail htmlEmail = new HtmlEmail();
+			htmlEmail.setCharset("UTF-8");
 			htmlEmail.setHtmlMsg(
 					 "<h1>Aviso!: Tentaram alterar a senha de sua conta no site Ecommerce</h1>"
-					+ "<p>Se for o dono da conta, IGNORE ESTA MENSAGEM.</p>"
-					+ String.format("<a href='http://192.168.100.16:8080/loja/editar-senha?auth=%s'>Para prosseguir e alterar sua senha clique aqui.<a>", token)
+					+ "<p>Se for o dono da conta e não for aquele que efetuou o pedido, entre em contato, caso tenha efetuado o pedido: </p>"
+					+ String.format("<a href='http://192.168.100.16:8080/loja/perfil/editar-senha?auth=%s'>Para prosseguir e alterar sua senha clique aqui.<a>", token)
 					);
 			htmlEmail.addTo(destinatario);//destinatario
 			htmlEmail.setSubject("Assunto");
@@ -56,8 +57,8 @@ public class EcommerceUtil {
 			htmlEmail.setStartTLSEnabled(true);
 			htmlEmail.send();
 			}catch(EmailException e){
+				System.out.print(e.getMessage());
 				System.out.println(e.getCause());
-				System.out.println(e.getStackTrace());
 			}
 	}
 	

@@ -117,6 +117,7 @@ select * from pedidos order by num_ped;
 select * from produtos order by nome_prod;
 select * from admin_sistema_loja;
 select * from credenciamento_email_empresa;
+select * from categorias;
 
 insert into categorias values(1 , "Comida");
 insert into produtos values (3, "Danone", "Um danone de morango", 2.00, 2.50, 100, 1); 

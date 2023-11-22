@@ -66,8 +66,6 @@ public class CadastrarProdutoController extends HttpServlet {
 			//Pego todas as partes do formulario.
 			for(Part part : req.getParts()) {
 				//checo se é um arquivo.
-				System.out.println(part.getName());
-				System.out.println(part.getName());
 				if(part.getName().equals("imagem")) {
 					//copio o arquivo, o separator é uma barra para separar, e o getSubmittedFileName vai pegar o nome do arquivo que foi enviado.
 					part.write(path + "\\" + codigo_do_produto + ".png");
