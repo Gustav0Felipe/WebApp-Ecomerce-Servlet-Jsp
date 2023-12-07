@@ -22,7 +22,7 @@
 	<jsp:include page="/cabecalho.jsp" />
 
 	<section id="section-principal">
-		<div id="minhaConta">
+		<div class="base">
 			<span id="accountIcon" class="material-symbols-outlined">account_circle</span>
 			<h1>Meus dados</h1>
 

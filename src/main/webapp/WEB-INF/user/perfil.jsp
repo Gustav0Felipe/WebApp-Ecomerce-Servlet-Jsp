@@ -26,15 +26,20 @@
 			<span id="accountIcon" class="material-symbols-outlined">account_circle</span>
 			<h1>Minha Conta</h1>
 			<h2>Informações de Acesso</h2>
-
-			<p>${cliente.getNome()}</p>
-			<p>${cliente.getEmail()}</p>
-			<p>${cliente.getTelefone()}</p>
-			<p>${cliente.getCpf()}</p>
-			<br> <a href="/loja/perfil/editar"><button
-					class="editButtons">EDITAR</button></a> <a
-				href="/loja/perfil/editar-senha/autenticar"><button
-					class="editButtons">MUDAR SENHA</button></a>
+			<ol>
+				<li class="perfilDados">Nome:</li>
+				<li>${cliente.getNome()}</li>
+				<li class="perfilDados">Email:</li>
+				<li>${cliente.getEmail()}</li>
+				<li class="perfilDados">Telefone:</li>
+				<li>${cliente.getTelefone()}</li>
+				<li class="perfilDados">Cpf:</li>
+				<li>${cliente.getCpf()}</li>
+			</ol>
+			<br> 
+			<a href="/loja/perfil/editar"><button class="editButtons">EDITAR</button></a> 
+			<a href="/loja/perfil/editar-senha/autenticar"><button class="editButtons">MUDAR SENHA</button></a>
+			<a href="/loja/perfil/exit"><button class="editButtons"><span class="material-symbols-outlined" id="exitIcon">logout</span></button></a>
 		</div>
 
 	</section>

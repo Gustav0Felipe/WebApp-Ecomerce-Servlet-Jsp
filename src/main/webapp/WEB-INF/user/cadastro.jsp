@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -34,18 +34,16 @@
 			<h1>Criar Conta</h1>
 			<p>Informe seus dados abaixo para criar sua conta</p>
 			<form action="/loja/cadastro" method="post">
-
-				<label for="nome">Nome: </label> <input id="nome" name="nome"
-					type="text" maxlength="255" required placeholder="Nome" /> <label
-					for="cpf">CPF: </label> <input id="cpf" name="cpf" type="text"
-					maxlength="255" required placeholder="CPF *" /> <label
-					for="telefone">Telefone: </label> <input id="telefone"
-					name="telefone" type="tel" required placeholder="Telefone" /> <label
-					for="email">Email: </label> <input id="email" name="email"
-					type="email" maxlength="255" required placeholder="Email *" /> <label
-					for="senha">Senha: </label> <input id="senha" name="senha"
-					type="password" min="8" required placeholder="Senha *" />
-
+				<label for="nome">Nome: </label> 
+				<input id="nome" name="nome" type="text" maxlength="255" required placeholder="Nome"/>
+				<label for="cpf">CPF: </label> 
+				<input id="cpf" name="cpf" type="text" maxlength="15" required placeholder="CPF *" /> 
+				<label for="telefone">Telefone: </label> 
+				<input id="telefone" name="telefone" type="tel" required placeholder="Telefone"/> 
+				<label for="email">Email: </label> 
+				<input id="email" name="email" type="email" maxlength="255" required placeholder="Email *"/> 
+				<label for="senha">Senha: </label> 
+				<input id="senha" name="senha" type="password" minlength="8" required placeholder="Senha *"/>
 				<button id="cadastrar" type="submit">Enviar</button>
 			</form>
 		</div>

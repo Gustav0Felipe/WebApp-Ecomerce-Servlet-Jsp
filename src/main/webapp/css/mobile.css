@@ -287,7 +287,7 @@ input#cep{
 
 
 
-
+/* Login e Cadastro*/
 div#cadastro, div.login {
 	width: 90%;
 	max-width: 400px;
@@ -335,6 +335,41 @@ div#cadastro > form > #cadastrar, div.login > form > #cadastrar{
 	font-size: 3em; 
 	margin-top: 10px;
 	padding: 10px;
+}
+
+#exitIcon{
+	font-size: 1em;
+}
+
+/*Perfil*/
+div.perfil {
+	width: 90%;
+	max-width: 500px;
+	margin: auto;
+	text-align: center;
+}
+div.perfil > ol{
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	list-style: none;
+	width: 300px;
+	margin: auto;
+}
+div.perfil > ol > li{
+	display: flex;
+	flex-direction: row;
+}
+
+/*Editar*/
+div.base{
+	margin: auto;
+	width: 90%;
+	max-width: 600px;
+	text-align: center;
+}
+button.editButtons{
+	padding: 5px;
+	margin-right: 5px;
 }
 
 

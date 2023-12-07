@@ -51,7 +51,7 @@ public class EcommerceUtil {
 			htmlEmail.addTo(destinatario);//destinatario
 			htmlEmail.setSubject("Assunto");
 			htmlEmail.setFrom(remetente);//remetente
-			htmlEmail.setHostName("smtp.office365.com");
+			htmlEmail.setHostName("smtp-mail.outlook.com");
 			htmlEmail.setSmtpPort(587);
 			htmlEmail.setAuthentication(email, senha);    
 			htmlEmail.setStartTLSEnabled(true);

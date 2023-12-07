@@ -39,7 +39,7 @@
 			<input type="hidden" id="estoque" name="estoque" value="${produto.getQtd_estq()}"/>
 			<input type="hidden" id="categoria" name="categoria" value="${produto.getCategoria()}"/>
 			 
-			<button id="comprar" type="submit"><span class="materi al-symbols-outlined">shopping_cart</span> Comprar</button>
+			<button id="comprar" type="submit"><span class="material-symbols-outlined">shopping_cart</span> Comprar</button>
 		</form>
 	</div>
 	<ol id="descricao_bar" onclick="clickMenu(descricao)">

@@ -57,7 +57,7 @@ public class AutenticarSenhaController extends HttpServlet {
 				String password = credenciais.get("senha");
 				String token = EcommerceUtil.gerarStringAlphanumerica();
 				
-				System.out.println("http://192.168.100.16:8080/loja/editar-senha?auth="+token);
+				System.out.println("http://192.168.100.16:8080/loja/perfil/editar-senha?auth="+token);
 				session.setAttribute("token", token);
 
 				msg = "Cheque seu email, lhe enviamos um link para que possa ser feita a alteração de senha.";
