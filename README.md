@@ -49,4 +49,43 @@ Projeto Java - Fazendo um Ecommerce com Servlets e JSP's
 - Ajustar CSS para diferentes tamanhos de tela.
 
 
- 
+<h2>Paginas Direcionadas á usuários</h2>
+
+Pagina Principal:
+<div><img src="https://github.com/Gustav0Felipe/WebApp-Ecomerce-Servlet-Jsp/assets/121760776/62104592-1de2-4b8c-a17d-8480ecd29e52" width="300"></div>
+
+Alteração de dados do usuario:
+<div><img src="https://github.com/Gustav0Felipe/WebApp-Ecomerce-Servlet-Jsp/assets/121760776/3a296947-5a9d-4d1f-ae5e-5eadb9a06c1b" width="300"></div>
+
+Carrinho:
+<div><img src="https://github.com/Gustav0Felipe/WebApp-Ecomerce-Servlet-Jsp/assets/121760776/8d0cb07d-9c9a-4195-92e2-738862471bd9" width="300"></div>
+
+Finalizar Pedido:
+<div><img src="https://github.com/Gustav0Felipe/WebApp-Ecomerce-Servlet-Jsp/assets/121760776/ac460005-f0fe-483a-b471-2c575641a2d8" width="300"></div>
+
+Perfil do usuario:
+<div><img src="https://github.com/Gustav0Felipe/WebApp-Ecomerce-Servlet-Jsp/assets/121760776/8e9a3d3b-7399-465b-ac00-adf11a150298" width="300"></div>
+
+Pagina de mensagens:
+<div><img src="https://github.com/Gustav0Felipe/WebApp-Ecomerce-Servlet-Jsp/assets/121760776/b2afa400-5a1c-4976-bd1e-ddc8a1f094d7)" width="300"></div>
+
+<h2>Paginas direcionadas á funcionarios</h2>
+
+Pagina admin:
+<div><img src="https://github.com/Gustav0Felipe/WebApp-Ecomerce-Servlet-Jsp/assets/121760776/351293a5-9282-4377-b16f-4726b5f44dfd" width="300"></div>
+
+Cadastrar Produto:
+<div><img src="https://github.com/Gustav0Felipe/WebApp-Ecomerce-Servlet-Jsp/assets/121760776/abcc28bf-0f7c-4884-9717-929969ebdf77" width="300"></div>
+
+Listar Pedidos:
+<div><img src="https://github.com/Gustav0Felipe/WebApp-Ecomerce-Servlet-Jsp/assets/121760776/640d82d2-7b40-42b5-b702-045382b6ce77" width="300"></div>
+
+Detalhes de Pedido:
+<div><img src="https://github.com/Gustav0Felipe/WebApp-Ecomerce-Servlet-Jsp/assets/121760776/4af63313-fac5-4eb6-b75e-0cd5ef58a13e" width="300"></div>
+
+Detalhes de Pedido Finalizado:
+<div><img src="https://github.com/Gustav0Felipe/WebApp-Ecomerce-Servlet-Jsp/assets/121760776/a26e0148-5949-40c1-bec6-05dca33b827f" width="300"></div>
+
+
+
+
