@@ -65,7 +65,7 @@
 		</table>
 		
 		<a href="/loja/admin/pedidos/finalizar/${pedido.getId()}" class="buttonLink">
-		<button class="finalizar">
+		<button class="encerrar">
 				Finalizar Pedido
 		</button>
 		</a>

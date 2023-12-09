@@ -54,8 +54,8 @@
 		<button id="limpar_carrinho" type="button" onclick="limparCarrinho()"><span class="material-symbols-outlined">delete_forever</span> LIMPAR CARRINHO</button>
 	</div>
 	
-	<div id="finalizar">
-		<a href="/loja/encomendar"><button type="button"><span class='material-symbols-outlined'>shopping_cart</span> FINALIZAR PEDIDO</button></a>
+	<div id="finalizarDiv">
+		<a href="/loja/encomendar"><button id="finalizar" type="button"><span class='material-symbols-outlined'>shopping_cart</span> FINALIZAR PEDIDO</button></a>
 	</div>
 </section>
 

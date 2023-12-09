@@ -121,7 +121,6 @@ public class CarrinhoController extends HttpServlet {
 		session.setAttribute("produtosSession", produtos);
 		
 		Boolean isZero = false;
-		System.out.println(operacao);
 		for(Produto p: produtos) {
 			if(produtos.indexOf(p) == indexProduto) {
 				if(operacao.equals("decrement")) {

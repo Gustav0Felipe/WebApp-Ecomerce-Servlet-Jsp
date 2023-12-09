@@ -1,5 +1,17 @@
 @charset "UTF-8";
 
+:root{
+	--cor--laranja--0: rgb(255, 128, 0);
+	--cor--laranja--1: rgb(255, 165, 43);
+	--cor--laranja--2: rgb(255, 176, 98); 
+	--cor--laranja--3: rgb(255, 203, 151);
+	
+	--cor--verde--0: rgb(19, 154, 16);
+	--cor--verde--1: rgb(44, 232, 38);
+
+	--cor--outline--1: rgb(128, 255, 255);
+}
+
 * {
 	margin: 0px;
 	padding: 0px;
@@ -14,7 +26,7 @@ body, html{
 }
 
 header{
-	background-color: rgb(255, 165, 43);
+	background-color: var(--cor--laranja--1);
 	width: 100vw;	
 	padding: 10px;
 }
@@ -33,7 +45,7 @@ header > div > form > input{
 header > div > form > input:focus{
 	background-color: white;
     border: none;
-	outline: 0px solid rgb(128, 255, 255);
+	outline: 0px solid var(--cor--outline--1);
 }
 
 header > a > #logo{
@@ -60,12 +72,12 @@ nav > ul{
 nav > ul > li > a{
 	display: block;
 	text-decoration: none;
-	background-color: rgb(255, 203, 151);
+	background-color: var(--cor--laranja--3);
 	color: rgb(255, 255, 255);
 	padding: 5px;
 }
 nav > ul > li > a:hover{
-	background-color: rgb(255, 176, 98);
+	background-color: var(--cor--laranja--2);
 }
 nav > ul > li:last-child > a{
     border-radius: 0px 0px 5px 5px;
@@ -74,7 +86,7 @@ nav > ul > li:last-child > a{
 #burguer{
     display: block;
     color: white;
-    background-color: rgb(255, 128, 0);
+    background-color: var(--cor--laranja--0);
 	width: 100%;
     padding: 10px;
 	border-radius: 5px;
@@ -109,18 +121,26 @@ footer{
 	width: 100vw;
 	text-align: center;
 
-	background-color: lightslategray;
+	background-color: var(--cor--laranja--0);
 }
 
 
 
+/*Ao pressionar Botões*/
+button:active { 
+            box-shadow: box-shadow
+            7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
+			transform: translateY(1px); 
+            transition: 0s;
+} 
 
+/*Comprar*/
 p#preco{
 	display: block;
 	width: 90%;
 	margin: auto;
 	font-size: 2em;
-	color: rgb(19, 154, 16);
+	color: var(--cor--verde--0);
 }
 
 button#comprar{
@@ -130,10 +150,14 @@ button#comprar{
 	border-radius: 5px;
 
 	color: white;
-	background-color: rgb(19, 154, 16);
+	background-color: var(--cor--verde--0);
 	box-shadow: 1px 1px 1px rgb(106, 106, 106, 0.50);
 
 	font-size: 2em;
+}
+
+button#comprar:active{
+	background-color: var(--cor--verde--1);
 }
 
 ol#descricao_bar{
@@ -190,7 +214,7 @@ div#cadastro > form >  #editar{
 	padding: 5px;
 	border-radius: 5px;
 	color: #fff;
-	background-color: rgb(255, 128, 0);
+	background-color: var(--cor--laranja--0);
 }
 
 
@@ -266,10 +290,10 @@ input#cep{
 	border: 1px solid  rgb(133, 133, 133);
 	border-radius: 2px;
 }
-#finalizar{ 
+#finalizarDiv{
 	text-align: center;
 }
-#finalizar button{
+#finalizar{
 	width: 90%;
 	margin: auto;
 	margin-top: 10px;
@@ -277,13 +301,15 @@ input#cep{
 	border-radius: 5px;
 
 	color: white;
-	background-color: rgb(19, 154, 16);
+	background-color: var(--cor--verde--0);
 	box-shadow: 1px 1px 1px rgb(106, 106, 106, 0.50);
 
 	font-size: 1.5em;
 }
-
-
+#finalizar:active {
+	background-color: var(--cor--verde--1);
+	transition: 0s;
+}
 
 
 
@@ -295,6 +321,7 @@ div#cadastro, div.login {
 	
 	text-align: center;
 }
+
 div#cadastro > form, div.login > form{
 	display: flex;
 	flex-direction: column;
@@ -306,11 +333,12 @@ div#cadastro > form > input, div.login > form > input {
 	border-radius: 5px;
 	border: 1px solid gray;
 }
+
 div#cadastro > form > input:focus, div.login > form > input:focus {
-	border-color:  rgb(255, 176, 98);
+	border-color:  var(--cor--laranja--2);
 	outline: none;
-	
 }
+
 div#cadastro > form > label, div.login > form > label {
 	display: none;
 }
@@ -320,7 +348,11 @@ div#cadastro > form > #cadastrar, div.login > form > #cadastrar{
 	padding: 5px;
 	border-radius: 5px;
 	color: #fff;
-	background-color: rgb(255, 128, 0);
+	background-color: var(--cor--laranja--0);
+}
+
+div#cadastro > form > #cadastrar:active, div.login > form > #cadastrar:active{
+	background-color: var(--cor--laranja--1);
 }
 
 #createUserIcon {
@@ -400,7 +432,7 @@ a.buttonLink:visited {
 	color: black;
 }
 
-.finalizar {
+.encerrar {
 	display: block;
 	margin: 5px auto 5px auto;
 
