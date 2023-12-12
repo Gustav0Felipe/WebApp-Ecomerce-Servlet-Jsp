@@ -48,7 +48,11 @@ Projeto Java - Fazendo um Ecommerce com Servlets e JSP's
 
 - Ajustar CSS para diferentes tamanhos de tela.
 
-<h2>Caso de uso finalizar compra:</h2>
+<h2>Caso de uso efetuar compra:</h2>
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/G7SVrrwB88s/0.jpg)](https://www.youtube.com/watch?v=G7SVrrwB88s)
 
+
+<h2>Caso de uso Cliente ao se cadastrar:</h2>
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/wle2WkDqmH0/0.jpg)](https://www.youtube.com/watch?v=wle2WkDqmH0)
