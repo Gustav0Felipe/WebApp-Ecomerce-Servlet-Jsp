@@ -108,17 +108,29 @@ create table credenciamento_email_empresa(
 	primary key(email_empresa, senha_empresa)
 );
 
-select * from view_pedidos;
+
+
+
 select * from clientes;
+select * from view_pedidos;
+
+select cod_cli "Id do Cliente", nome_cli "Nome",email_cli "Email", tel_cli "Telefone", cpf_cli "CPF" 
+from clientes where cod_cli > 12 and cod_cli not in(25,26);
+
 select * from cadastro_cliente_loja;
 select * from log_cad_cliente;
 select * from pedidos_produtos order by num_ped;
-select * from pedidos order by num_ped; 
+select num_ped "Numero do Pedido", clientes.cod_cli "Id do Cliente", nome_cli "Nome", 
+		data_inicial "Data Inicial", data_final "Data Final", status_ped "Status", valor_total "Total" 
+        from pedidos join clientes on clientes.cod_cli = pedidos.cod_cli;
 select * from produtos order by nome_prod;
 select * from admin_sistema_loja;
 select * from credenciamento_email_empresa;
 select * from categorias;
 
-insert into categorias values(1 , "Comida");
-insert into produtos values (3, "Danone", "Um danone de morango", 2.00, 2.50, 100, 1); 
+
+select * from pedidos;
+
+select cod_cli "Id do Cliente", nome_cli "Nome",email_cli "Email", tel_cli "Telefone", cpf_cli "CPF" 
+from clientes where cod_cli > 12 and cod_cli not in(25,26);
 

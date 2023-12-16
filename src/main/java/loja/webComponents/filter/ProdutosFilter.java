@@ -15,7 +15,7 @@ import jakarta.servlet.annotation.WebFilter;
 		"/index.jsp",
 		"/principal",
 		"/comprar"})
-public class PrincipalFilter implements Filter{
+public class ProdutosFilter implements Filter{
 	
 	private ServletContext context;
 	

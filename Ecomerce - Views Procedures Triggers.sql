@@ -152,8 +152,19 @@ delimiter ;
 
 create procedure pd_editar_senha_cliente (in idCliente int, in senha varchar(30))
 	update cadastro_cliente_loja set pass_cli = senha where cod_cli = idCliente;
-    
-    
+
+
+create procedure pd_user_clienteEmail_alreadyExists(in usuario varchar(50))
+select email_cli
+from cadastro_cliente_loja
+where email_cli = usuario;
+
+create procedure pd_user_cliente_alreadyExists(in cpf varchar(20))
+select *
+from clientes
+where cpf_cli = cpf;
+
+
 -- Teste
 insert into categorias values(null, "Comida");
 insert produtos values (1, "Biscoito", "É um biscoito de chocolate", 1.00, 1.50, 20, 1);

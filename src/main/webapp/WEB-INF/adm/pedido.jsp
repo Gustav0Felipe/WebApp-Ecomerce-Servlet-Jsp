@@ -22,7 +22,7 @@
 	
 	<section id="section-principal">
 		<div>
-			<table>
+			<table class="pedidos">
 				<tr class="pedido">
 					<th scope="col">Pedido</th> 
 					<th scope="col">Cliente</th> 

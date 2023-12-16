@@ -20,7 +20,7 @@ public class AdminController extends HttpServlet {
 		
 		HttpSession session = req.getSession(true);
 		
-		if(session.getAttribute("permitir") == null|| (Boolean) session.getAttribute("permitir") == false) {
+		if(session.getAttribute("permitir") == null || (Boolean) session.getAttribute("permitir") == false) {
 			req.getRequestDispatcher("/WEB-INF/adm/login.jsp").forward(req, resp);
 		}else {
 			req.getRequestDispatcher("/WEB-INF/adm/principal.jsp").forward(req, resp);
@@ -37,7 +37,7 @@ public class AdminController extends HttpServlet {
 		
 		Boolean permitir = DAOGerencia.validarAdmin(email, senha);
 		if(permitir == false || permitir == null) {
-			resp.sendRedirect("/loja/admin");
+			doGet(req, resp);
 		}else {
 			session.setAttribute("permitir", true);
 			req.getRequestDispatcher("/WEB-INF/adm/principal.jsp").forward(req, resp);

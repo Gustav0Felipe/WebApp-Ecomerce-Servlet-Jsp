@@ -1,4 +1,4 @@
-package loja.webComponents.controller;
+package loja.webComponents.controllerAdmin;
 
 import java.io.IOException;
 
@@ -9,17 +9,18 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet(urlPatterns = {"/perfil/exit"})
-public class DeslogarController extends HttpServlet {
-	
+@WebServlet(urlPatterns = {"/admin/exit"} )
+public class AdminExitController extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session = req.getSession();		
+		HttpSession session = req.getSession();
+	
+		session.removeAttribute("permitir");
 		
-		session.removeAttribute("cliente");
 		
-		resp.sendRedirect("/loja/login");
+		resp.sendRedirect("/loja/admin");
 	}
 }

@@ -39,7 +39,8 @@ public class LoginController extends HttpServlet {
 		
 		Cliente cliente = DAOEcommerce.validarLogin(email, senha);
 		if(cliente == null) {
-			resp.sendRedirect("/loja/login");
+			req.setAttribute("mensagem", "Este cliente não existe");
+			doGet(req, resp);
 		}else {
 			session.setAttribute("cliente", cliente);
 			resp.sendRedirect("/loja/perfil");

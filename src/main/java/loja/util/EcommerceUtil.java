@@ -38,9 +38,9 @@ public class EcommerceUtil {
 	 * @param destinatario = email do destinatario.
 	 * @param token = String alphanurica aleatoria usada para autenticação.
 	 */
-	public static void enviarEmailAutorizar(String email, String senha, String remetente, String destinatario, String token) {
-		try {
-			
+	public static void enviarEmailAutorizar(String email, String senha, String remetente, String destinatario, String token){
+		
+			try {
 			HtmlEmail htmlEmail = new HtmlEmail();
 			htmlEmail.setCharset("UTF-8");
 			htmlEmail.setHtmlMsg(
@@ -56,10 +56,11 @@ public class EcommerceUtil {
 			htmlEmail.setAuthentication(email, senha);    
 			htmlEmail.setStartTLSEnabled(true);
 			htmlEmail.send();
-			}catch(EmailException e){
-				System.out.print(e.getMessage());
-				System.out.println(e.getCause());
+			} catch (EmailException exception) {
+				System.out.println(exception.getCause());
+				System.out.println(exception.getMessage());
 			}
+			
 	}
 	
 	/**

@@ -57,6 +57,8 @@ public class EditarSenhaController extends HttpServlet {
 		req.setAttribute("messageWindow", msg);
 		req.getRequestDispatcher("/mensagem.jsp").forward(req, resp);
 		
+		}else {
+			resp.sendRedirect("/login");
 		}
 	}
 }

@@ -21,8 +21,6 @@ public class ComprarController extends HttpServlet {
 		
 		Produto produto = new Produto();
 		produto = DAOEcommerce.buscarProduto(Integer.parseInt(req.getParameter("produto")));
-		System.out.println(req.getServletContext().getRealPath("/imagens"));
-		//session.setAttribute("produtoCompraSession", produto);
 		req.setAttribute("produto", produto);
 		req.getRequestDispatcher("/WEB-INF/view/comprar.jsp").forward(req, resp);
 	}

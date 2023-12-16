@@ -22,7 +22,7 @@
 	
 	<section id="section-principal">
 		<div>
-			<table>
+			<table class="pedidos">
 				<tr class="pedido">
 					<th scope="col">Pedido</th> 
 					<th scope="col">Cliente</th> 
@@ -47,10 +47,19 @@
 					</td>
 				</tr>
  				</c:forEach>	
-		</table>
+			</table>
+		
+			<a href="/loja/admin" class="buttonLink">
+				<button class="voltar">
+					<span class="material-symbols-outlined">
+						arrow_back
+					</span>
+				</button>
+			</a>
 		</div>
+		<br>
 	</section>
-	
+
 <jsp:include page="/rodape.jsp"/>
 	
 </body>

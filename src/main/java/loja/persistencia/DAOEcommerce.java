@@ -93,6 +93,44 @@ public class DAOEcommerce {
 	}
 	
 	
+	public static Boolean clienteAlreadyExists(String usuario, String cpf) {
+		Connection conexao = null;
+		String emailCheck = EcommerceUtil.get("autenticar.cliente.email");
+		String cpfCheck = EcommerceUtil.get("autenticar.cliente.cpf");
+		Boolean existeCliente = true;
+		
+		try {
+			conexao = getConnection();
+			PreparedStatement emailConsulta = conexao.prepareStatement(emailCheck);
+			emailConsulta.setString(1, usuario);
+				
+			ResultSet resultEmail = emailConsulta.executeQuery();
+			//só tem um registro, pega todas as colunas dele.
+			if(resultEmail.next()) {
+				return true;
+			}else {
+				existeCliente = false;
+			}
+		
+			PreparedStatement cpfConsulta = conexao.prepareStatement(cpfCheck);
+			cpfConsulta.setString(1, cpf);
+			
+			ResultSet resultCpf = cpfConsulta.executeQuery();
+			if(resultCpf.next()) {
+				return true;
+			}else {
+				existeCliente = false;
+			}
+			
+		} catch (SQLException e) {
+			assert false: "ERRO ao validar login: " + e.getMessage();
+		}finally {
+			closeConnection(conexao);
+		}
+		return existeCliente;
+	}
+	
+	
 	/**
 	 * Ao trocar de senha o cliente fornece a senha atual dele para autenticação
 	 * este metodo pega a senha fornecida e passa para uma procedure que autentica no banco de dados

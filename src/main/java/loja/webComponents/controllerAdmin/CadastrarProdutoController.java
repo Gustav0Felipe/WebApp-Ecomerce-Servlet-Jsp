@@ -1,7 +1,9 @@
 package loja.webComponents.controllerAdmin;
 
 import java.io.IOException;
+import java.util.List;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,6 +21,7 @@ public class CadastrarProdutoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
+
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		HttpSession session = req.getSession(true);
@@ -33,7 +36,9 @@ public class CadastrarProdutoController extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		
+		ServletContext context = req.getServletContext();
+		
 		HttpSession session = req.getSession(true);
 		
 		if(session.getAttribute("permitir") == null|| (Boolean) session.getAttribute("permitir") == false) {
@@ -41,7 +46,7 @@ public class CadastrarProdutoController extends HttpServlet {
 			return;
 		}
 		
-		String path = req.getServletContext().getRealPath("/imagens");
+		String path = "C:\\Users\\55119\\Desktop\\Estudos\\Impacta\\Java\\WebApp-Ecomerce-Servlet-Jsp\\src\\main\\webapp\\imagens"; //req.getServletContext().getRealPath("/imagens");
 		
 		Produto produto = new Produto();
 		
@@ -69,6 +74,11 @@ public class CadastrarProdutoController extends HttpServlet {
 				if(part.getName().equals("imagem")) {
 					//copio o arquivo, o separator é uma barra para separar, e o getSubmittedFileName vai pegar o nome do arquivo que foi enviado.
 					part.write(path + "\\" + codigo_do_produto + ".png");
+					
+					@SuppressWarnings("unchecked")
+					List<Integer> produtos = (List<Integer>) context.getAttribute("produtos");
+					produtos.add(codigo_do_produto);
+					context.setAttribute("produtos", produtos);
 				}
 			}
 			req.setAttribute("messageWindow", "Arquivo carregado com sucesso");

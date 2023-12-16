@@ -39,10 +39,4 @@ function updatePassword(){
 		})
 }
 
-function checkSessionLoad(type){
-	if(type != null){
-		window.location.reload();
-	}
-	console.log(type);
-}
 

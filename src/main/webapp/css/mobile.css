@@ -130,9 +130,25 @@ footer{
 button:active { 
             box-shadow: box-shadow
             7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
-			transform: translateY(1px); 
+			transform: translateY(2px); 
             transition: 0s;
 } 
+
+/*Avisos na tela*/
+p.mensagem {
+	padding: 5px;
+}
+
+p#messageWindow{
+	display: inline-block;
+	width: 90%;
+	margin: 20px;
+	padding: 5px;
+	border: 1px solid black;
+	border-radius: 5px;
+	font-size: 1.2em;
+	font-weight: bold;
+}
 
 /*Comprar*/
 p#preco{
@@ -390,6 +406,7 @@ div.perfil > ol{
 div.perfil > ol > li{
 	display: flex;
 	flex-direction: row;
+	padding: 5px;
 }
 
 /*Editar*/
@@ -406,11 +423,12 @@ button.editButtons{
 
 
 /*Listar pedidos*/
-table {
+table.pedidos {
+	width: 90%;
 	border-collapse: collapse;
-	margin: auto;
-	margin-top: 10px;
+	margin: 10px auto 10px auto;
 	padding: 5px;
+
 }
 
 tr.pedido > td, th {
@@ -418,13 +436,14 @@ tr.pedido > td, th {
 	border: 1px solid black;
 }
 
-button.voltar {
-	display: block;
-	margin: 5px auto 5px auto;
-}
-
 a.buttonLink{
 	text-decoration: none;
+}
+a.buttonLink > button{
+	display: block;
+	margin: 5px auto 5px auto;
+	font-size: 1.25em; 
+	width: 150px;
 }
 
 a.buttonLink:visited {
@@ -432,9 +451,42 @@ a.buttonLink:visited {
 	color: black;
 }
 
-.encerrar {
-	display: block;
-	margin: 5px auto 5px auto;
 
-	font-size: 1.25em; 
+/*Admin*/
+#section-principal-admin{
+	width: 90%;
+	max-width: 500px;
+	margin: 50px auto 50px auto;
+	text-align: center;
+	border: solid black 1px;
+	border-radius: 5px;
+}
+
+#section-principal-admin > h1 {
+	margin-top: 20px;
+}
+
+
+#adminMenu{
+	margin: auto;
+}
+#adminOptions{
+	display: grid;
+	grid-template-columns: 1fr;
+	width: 90%;
+	margin: 20px auto 50px auto;
+	max-width: 400px;
+	text-align: center;
+}
+
+#adminOptions > li {
+	display: flex;
+	flex-direction: column;
+}
+
+#adminOptions > li > a > button{
+	width: 90%;
+	max-width: 150px;
+	padding: 5px;
+	margin: 5px;
 }

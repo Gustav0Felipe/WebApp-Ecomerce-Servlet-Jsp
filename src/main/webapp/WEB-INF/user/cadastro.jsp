@@ -46,6 +46,7 @@
 				<input id="senha" name="senha" type="password" minlength="8" required placeholder="Senha *"/>
 				<button id="cadastrar" type="submit">Enviar</button>
 			</form>
+			<p class="mensagem">${mensagem}</p>
 		</div>
 	</section>
 

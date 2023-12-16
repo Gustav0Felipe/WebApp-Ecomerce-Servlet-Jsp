@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="true" %>
 <!DOCTYPE html>
 <html>
 <head>
+<title>Alterar senha</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/favicon.ico"/>
@@ -15,14 +15,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/responsive.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/sessionStorage.js"></script>
-
-<title>Alterar senha</title>
 </head>
 <body onresize="mudouTamanhoMenu()" onload="mudouTamanhoMenu()">
+
 <jsp:include page="/cabecalho.jsp"/>
 
-<h1><%= request.getAttribute("messageWindow") %></h1>
+<p id="messageWindow"><%= request.getAttribute("messageWindow") %></p>
+
 <jsp:include page="/rodape.jsp"/>
+
 </body>
 </html>

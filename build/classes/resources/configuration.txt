@@ -3,6 +3,9 @@ usuario=root
 senha=1234
 
 autenticar.cliente=call pd_user_cliente(?, ?);
+autenticar.cliente.email=call pd_user_clienteEmail_alreadyExists(?);
+autenticar.cliente.cpf=call pd_user_cliente_alreadyExists(?);
+
 autenticar.admin=call pd_user_admin(?, ?);
 
 cadastro.cliente=call pd_cadastro_cliente(?, ?, ?, ?, ?);

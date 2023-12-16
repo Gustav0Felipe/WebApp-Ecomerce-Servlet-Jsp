@@ -20,9 +20,13 @@
 
 <jsp:include page="/cabecalho.jsp"/>
 
-<section id="section-principal">
-	<a href="/loja/admin/cadastrar-produto"><button>Cadastrar Produto</button></a>
-	<a href="/loja/admin/pedidos"><button>Listar Pedidos</button></a>
+<section id="section-principal-admin">
+	<h1>Menu de gerenciamento</h1>
+		<ol id="adminOptions">
+			<li><a href="/loja/admin/cadastrar-produto"><button>Cadastrar Produto</button></a></li>
+			<li><a href="/loja/admin/pedidos"><button>Listar Pedidos</button></a></li>
+			<li><a href="/loja/admin/exit"><button><span class="material-symbols-outlined" id="exitIcon">logout</span></button></a></li>
+		</ol>
 </section>
 	
 <jsp:include page="/rodape.jsp"/>

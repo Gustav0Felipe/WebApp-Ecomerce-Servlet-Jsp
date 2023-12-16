@@ -53,18 +53,17 @@ public class AutenticarSenhaController extends HttpServlet {
 
 				Map<String, String> credenciais = DAOEcommerce.getCredenciaisEmailEmpresa();
 				
-				String email = credenciais.get("email");
-				String password = credenciais.get("senha");
+				String emailEmpresa = credenciais.get("email");
+				String passwordEmpresa = credenciais.get("senha");
 				String token = EcommerceUtil.gerarStringAlphanumerica();
 				
-				System.out.println("http://192.168.100.16:8080/loja/perfil/editar-senha?auth="+token);
 				session.setAttribute("token", token);
 
 				msg = "Cheque seu email, lhe enviamos um link para que possa ser feita a alteração de senha.";
 				req.setAttribute("messageWindow", msg);
 				req.getRequestDispatcher("/mensagem.jsp").forward(req, resp);
 				
-				EcommerceUtil.enviarEmailAutorizar(email, password, email, email, (String) session.getAttribute("token"));
+				EcommerceUtil.enviarEmailAutorizar(emailEmpresa, passwordEmpresa, emailEmpresa, cliente.getEmail(), (String) session.getAttribute("token"));
 			}else {
 				msg = "A senha fornecida não corresponde a que foi salva.";
 				req.setAttribute("mensagem", msg);

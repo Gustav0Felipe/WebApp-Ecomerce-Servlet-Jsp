@@ -24,12 +24,18 @@ public class CadastroController extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session = req.getSession(false);
+		HttpSession session = req.getSession(true);
 		String nome = req.getParameter("nome");
 		String email = req.getParameter("email");
 		String telefone = req.getParameter("telefone");
 		String senha = req.getParameter("senha");
 		String cpf = req.getParameter("cpf");
+		
+		Boolean clienteJaExiste = DAOEcommerce.clienteAlreadyExists(email, cpf);
+		if(clienteJaExiste) {
+			req.setAttribute("mensagem", "Este cliente já existe.");	
+			doGet(req, resp);
+		}else {
 		
 		DAOEcommerce.cadastrarCliente(nome, email, telefone, senha, cpf);
 		
@@ -38,6 +44,7 @@ public class CadastroController extends HttpServlet {
 		session.setAttribute("cliente", cliente);
 		
 		req.getRequestDispatcher("/WEB-INF/user/perfil.jsp").forward(req, resp);
-	}
 	
+		}
+	}
 }
